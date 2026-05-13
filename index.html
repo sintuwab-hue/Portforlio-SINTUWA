@@ -508,14 +508,391 @@
     background: linear-gradient(135deg, var(--gold), var(--gold-light));
     color: #0a0e1a; box-shadow: 0 4px 12px rgba(212,160,23,0.25);
   }
-  .tab-btn[data-view="sectors"].active {
-    background: linear-gradient(135deg, #10b981, #34d399);
-    color: #0a0e1a; box-shadow: 0 4px 12px rgba(16,185,129,0.25);
-  }
   .tab-btn[data-view="finance"].active {
     background: linear-gradient(135deg, #f97316, #fb923c);
     color: #0a0e1a; box-shadow: 0 4px 12px rgba(249,115,22,0.25);
   }
+  .tab-btn[data-view="sectors"].active {
+    background: linear-gradient(135deg, #10b981, #34d399);
+    color: #0a0e1a; box-shadow: 0 4px 12px rgba(16,185,129,0.25);
+  }
+  /* ============ SECTORS VIEW ============ */
+  #view-sectors .sec-hero {
+    padding: 50px 20px 36px; text-align: center;
+    background: radial-gradient(ellipse at top, rgba(212,160,23,0.1), transparent 60%);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 20px; margin-bottom: 30px;
+  }
+  #view-sectors .sec-hero-tag {
+    display: inline-flex; align-items: center; gap: .4rem;
+    background: rgba(212,160,23,.12); color: var(--gold);
+    font-size: .72rem; padding: .4rem 1rem; border-radius: 100px;
+    font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+    margin-bottom: 1.2rem; border: 1px solid rgba(212,160,23,.25);
+  }
+  #view-sectors .sec-hero h2 {
+    font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 800;
+    line-height: 1.15; letter-spacing: -.02em; margin-bottom: 1rem; color: #fff;
+  }
+  #view-sectors .sec-hero h2 .gold {
+    background: linear-gradient(135deg, #fef3c7 0%, #d4a017 50%, #92400e 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  #view-sectors .sec-hero p { font-size: 1rem; color: #9ca3af; max-width: 660px; margin: 0 auto; }
+
+  #view-sectors .eyebrow {
+    font-size: .72rem; font-weight: 700; letter-spacing: .2em;
+    color: var(--gold); text-transform: uppercase; margin-bottom: .6rem;
+  }
+  #view-sectors .section-title {
+    font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700;
+    color: #fff; letter-spacing: -.02em; margin-bottom: .5rem;
+  }
+  #view-sectors .section-title .gold { color: var(--gold); }
+  #view-sectors .section-sub { font-size: .92rem; color: #9ca3af; margin-bottom: 1.5rem; max-width: 700px; }
+
+  #view-sectors .gdp-hero {
+    background: linear-gradient(135deg, #11151f 0%, #1a1f2e 100%);
+    border: 1px solid #1f2937; border-radius: 18px;
+    padding: 1.8rem; margin-bottom: 1.2rem; position: relative; overflow: hidden;
+  }
+  #view-sectors .gdp-hero::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, #10b981, #d4a017, #5e72e4);
+  }
+  #view-sectors .gdp-hero-grid {
+    display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; align-items: center;
+  }
+  @media (max-width: 700px) { #view-sectors .gdp-hero-grid { grid-template-columns: 1fr; text-align: center; } }
+  #view-sectors .gdp-tag {
+    display: inline-block; background: rgba(16,185,129,.12); color: #10b981;
+    font-size: .7rem; padding: .35rem 1rem; border-radius: 100px;
+    font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+    margin-bottom: .8rem; border: 1px solid rgba(16,185,129,.25);
+  }
+  #view-sectors .gdp-headline {
+    font-size: clamp(1.2rem, 3vw, 1.7rem); font-weight: 700;
+    color: #fff; line-height: 1.3; margin-bottom: .5rem;
+  }
+  #view-sectors .gdp-headline .gold { color: var(--gold); }
+  #view-sectors .gdp-headline .green { color: #10b981; }
+  #view-sectors .gdp-sub { font-size: .85rem; color: #9ca3af; line-height: 1.6; }
+  #view-sectors .gdp-big {
+    text-align: center; padding: 1rem 1.3rem;
+    background: rgba(212,160,23,.08); border: 1px solid rgba(212,160,23,.2);
+    border-radius: 14px; min-width: 160px;
+  }
+  #view-sectors .gdp-big .num { font-family: 'JetBrains Mono', monospace; font-size: 2rem; font-weight: 700; color: var(--gold); line-height: 1; }
+  #view-sectors .gdp-big .unit { font-size: .75rem; color: var(--gold-light); margin-top: .3rem; font-weight: 600; }
+  #view-sectors .gdp-big .label { font-size: .65rem; color: #9ca3af; margin-top: .5rem; text-transform: uppercase; letter-spacing: .08em; }
+
+  #view-sectors .major-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: .9rem; margin-top: .8rem;
+  }
+  @media (max-width: 768px) { #view-sectors .major-grid { grid-template-columns: 1fr; } }
+  #view-sectors .major-card {
+    background: linear-gradient(135deg, #0a0e1a 0%, #11151f 100%);
+    border: 1px solid #1f2937; border-radius: 14px;
+    padding: 1.3rem 1.1rem; position: relative; overflow: hidden;
+  }
+  #view-sectors .major-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+  #view-sectors .major-card.services::before { background: linear-gradient(90deg, #10b981, #5eead4); }
+  #view-sectors .major-card.industry::before { background: linear-gradient(90deg, #5e72e4, #818cf8); }
+  #view-sectors .major-card.agri::before { background: linear-gradient(90deg, #fbbf24, #f59e0b); }
+  #view-sectors .major-card.services { border-color: rgba(16,185,129,.3); }
+  #view-sectors .major-card .ic { font-size: 1.5rem; margin-bottom: .5rem; }
+  #view-sectors .major-card .pct { font-family: 'JetBrains Mono', monospace; font-size: 2.2rem; font-weight: 700; line-height: 1; margin-bottom: .3rem; }
+  #view-sectors .major-card.services .pct { color: #10b981; }
+  #view-sectors .major-card.industry .pct { color: #5e72e4; }
+  #view-sectors .major-card.agri .pct { color: var(--gold-light); }
+  #view-sectors .major-card .nm { font-size: 1rem; font-weight: 700; color: #fff; }
+  #view-sectors .major-card .en { font-size: .7rem; color: #6b7280; text-transform: uppercase; letter-spacing: .1em; font-weight: 600; margin-bottom: .7rem; }
+  #view-sectors .major-card .desc { font-size: .76rem; color: #9ca3af; line-height: 1.55; margin-bottom: .8rem; min-height: 50px; }
+  #view-sectors .major-card .tag { display: inline-block; font-size: .66rem; font-weight: 700; color: var(--gold); background: rgba(212,160,23,.1); border: 1px solid rgba(212,160,23,.25); padding: .3rem .65rem; border-radius: 100px; }
+
+  #view-sectors .core5-card {
+    background: linear-gradient(135deg, rgba(212,160,23,.15) 0%, rgba(251,191,36,.05) 100%);
+    border: 2px solid rgba(212,160,23,.4); border-radius: 18px;
+    padding: 1.6rem 1.8rem; margin: 1.2rem 0; position: relative; overflow: hidden;
+  }
+  #view-sectors .core5-card::before { content: '💎'; position: absolute; top: 1rem; right: 1.3rem; font-size: 2rem; opacity: .4; }
+  #view-sectors .core5-tag { display: inline-block; background: var(--gold); color: #0a0e1a; font-size: .7rem; padding: .35rem 1rem; border-radius: 100px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .8rem; }
+  #view-sectors .core5-title { font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: .4rem; }
+  #view-sectors .core5-title .gold { color: var(--gold-light); }
+  #view-sectors .core5-sub { font-size: .85rem; color: #d1d5db; margin-bottom: 1.2rem; }
+  #view-sectors .core5-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: .5rem; margin-bottom: 1rem; }
+  @media (max-width: 700px) { #view-sectors .core5-grid { grid-template-columns: repeat(2, 1fr); } }
+  #view-sectors .core5-item { background: rgba(0,0,0,.35); border: 1px solid rgba(212,160,23,.25); border-radius: 10px; padding: .8rem .6rem; text-align: center; }
+  #view-sectors .core5-item .ic { font-size: 1.3rem; margin-bottom: .25rem; }
+  #view-sectors .core5-item .nm { font-size: .7rem; color: var(--gold-light); font-weight: 700; margin-bottom: .15rem; }
+  #view-sectors .core5-item .pc { font-family: 'JetBrains Mono', monospace; font-size: 1.05rem; font-weight: 700; color: #fff; }
+  #view-sectors .core5-sum { display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: center; padding: .9rem 1.2rem; background: rgba(212,160,23,.12); border-radius: 12px; margin-top: 1rem; border: 1px solid rgba(212,160,23,.3); }
+  @media (max-width: 600px) { #view-sectors .core5-sum { grid-template-columns: 1fr; text-align: center; } }
+  #view-sectors .core5-sum .total { font-family: 'JetBrains Mono', monospace; font-size: 2.2rem; font-weight: 800; color: var(--gold-light); line-height: 1; }
+  #view-sectors .core5-sum .desc { font-size: .82rem; color: #d1d5db; line-height: 1.5; }
+  #view-sectors .core5-sum .desc strong { color: #fff; }
+
+  #view-sectors .gdp-bars { background: #11151f; border: 1px solid #1f2937; border-radius: 18px; padding: 1.5rem; margin-bottom: 1.2rem; }
+  #view-sectors .gdp-bars-title { font-size: .95rem; font-weight: 700; color: #fff; margin-bottom: .3rem; }
+  #view-sectors .gdp-bars-sub { font-size: .76rem; color: #9ca3af; margin-bottom: 1.2rem; }
+  #view-sectors .gdp-bars-sub a { color: var(--gold); text-decoration: none; }
+  #view-sectors .gdp-bar-row { display: grid; grid-template-columns: 180px 1fr 70px; gap: 1rem; align-items: center; padding: .65rem 0; border-bottom: 1px solid #1f2937; }
+  @media (max-width: 600px) { #view-sectors .gdp-bar-row { grid-template-columns: 130px 1fr 60px; gap: .6rem; } }
+  #view-sectors .gdp-bar-label { display: flex; align-items: center; gap: .5rem; font-size: .82rem; color: #e5e7eb; font-weight: 600; }
+  #view-sectors .gdp-bar-track { background: #0a0e1a; height: 14px; border-radius: 7px; overflow: hidden; border: 1px solid #1f2937; }
+  #view-sectors .gdp-bar-fill { height: 100%; border-radius: 6px; }
+  #view-sectors .gdp-bar-pct { font-family: 'JetBrains Mono', monospace; font-size: .9rem; font-weight: 700; color: #fff; text-align: right; }
+  #view-sectors .gdp-bar-row.featured .gdp-bar-pct { color: var(--gold); }
+  #view-sectors .gdp-bar-row.muted .gdp-bar-pct { color: #9ca3af; }
+  #view-sectors .gdp-group { margin-top: 1.3rem; margin-bottom: .5rem; padding: .7rem 1rem; display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: center; border-left: 4px solid; border-radius: 0 8px 8px 0; background: #0a0e1a; }
+  #view-sectors .gdp-group:first-of-type { margin-top: 0; }
+  #view-sectors .gdp-group.services { border-color: #10b981; }
+  #view-sectors .gdp-group.industry { border-color: #5e72e4; }
+  #view-sectors .gdp-group.agri { border-color: var(--gold-light); }
+  #view-sectors .gdp-group .name { font-size: .95rem; font-weight: 700; color: #fff; }
+  #view-sectors .gdp-group .desc { font-size: .72rem; color: #9ca3af; margin-top: .15rem; }
+  #view-sectors .gdp-group .grp-pct { font-family: 'JetBrains Mono', monospace; font-size: 1.4rem; font-weight: 700; }
+  #view-sectors .gdp-group.services .grp-pct { color: #10b981; }
+  #view-sectors .gdp-group.industry .grp-pct { color: #5e72e4; }
+  #view-sectors .gdp-group.agri .grp-pct { color: var(--gold-light); }
+  #view-sectors .gdp-note { margin-top: 1rem; padding: 1rem 1.2rem; background: rgba(94,114,228,.06); border-left: 3px solid #5e72e4; border-radius: 8px; font-size: .8rem; color: #d1d5db; line-height: 1.6; }
+  #view-sectors .gdp-note strong { color: #fff; }
+  #view-sectors .gdp-note a { color: var(--gold); text-decoration: none; }
+
+  #view-sectors .gdp-insight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .9rem; margin-top: 1.2rem; }
+  #view-sectors .gdp-insight { background: #11151f; border: 1px solid #1f2937; border-radius: 14px; padding: 1.2rem 1.1rem; position: relative; }
+  #view-sectors .gdp-insight::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; border-radius: 14px 0 0 14px; }
+  #view-sectors .gdp-insight.growth::before { background: #10b981; }
+  #view-sectors .gdp-insight.warn::before { background: var(--gold-light); }
+  #view-sectors .gdp-insight.risk::before { background: #ef4444; }
+  #view-sectors .gdp-insight .ic { font-size: 1.3rem; margin-bottom: .5rem; }
+  #view-sectors .gdp-insight .h { font-size: .9rem; font-weight: 700; color: #fff; margin-bottom: .4rem; }
+  #view-sectors .gdp-insight .b { font-size: .78rem; color: #9ca3af; line-height: 1.55; }
+  #view-sectors .gdp-insight .b strong { color: var(--gold-light); }
+
+  #view-sectors .info-strip { background: linear-gradient(135deg, rgba(212,160,23,.06), rgba(16,185,129,.04)); border: 1px solid #1f2937; border-radius: 14px; padding: 1.3rem 1.6rem; margin: 1.5rem 0; display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: center; }
+  @media (max-width: 600px) { #view-sectors .info-strip { grid-template-columns: 1fr; text-align: center; } }
+  #view-sectors .info-icon { width: 48px; height: 48px; flex-shrink: 0; background: linear-gradient(135deg, var(--gold), var(--gold-light)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: #0a0e1a; }
+  #view-sectors .info-text .t { font-size: .76rem; color: var(--gold); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .3rem; }
+  #view-sectors .info-text .d { font-size: .9rem; color: #d1d5db; line-height: 1.6; }
+  #view-sectors .info-text .d a { color: var(--gold); text-decoration: none; font-weight: 600; }
+
+  #view-sectors .quick-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem; }
+  @media (max-width: 768px) { #view-sectors .quick-links { grid-template-columns: 1fr; } }
+  #view-sectors .qlink { background: #11151f; border: 1px solid #1f2937; border-radius: 12px; padding: 1.1rem; text-decoration: none; color: inherit; transition: .2s; display: flex; gap: .9rem; align-items: start; }
+  #view-sectors .qlink:hover { border-color: var(--gold); background: #1a1f2e; }
+  #view-sectors .qlink .ic { font-size: 1.3rem; width: 38px; height: 38px; flex-shrink: 0; background: #0a0e1a; border-radius: 10px; display: flex; align-items: center; justify-content: center; border: 1px solid #1f2937; }
+  #view-sectors .qlink .text .t { font-size: .9rem; font-weight: 700; color: #fff; margin-bottom: .15rem; }
+  #view-sectors .qlink .text .d { font-size: .76rem; color: #9ca3af; line-height: 1.4; }
+
+  .tab-btn[data-view="stocks5"].active {
+    background: linear-gradient(135deg, #7c3aed, #a78bfa);
+    color: #fff; box-shadow: 0 4px 12px rgba(124,58,237,0.3);
+  }
+
+  /* ============ STOCKS5 VIEW (Deep-dive cards for 5 favorite stocks) ============ */
+  #view-stocks5 .stock-detail-grid {
+    display: grid; grid-template-columns: 1fr; gap: 18px;
+  }
+  #view-stocks5 .sd-card {
+    background: linear-gradient(135deg, #11151f 0%, #1a1f2e 100%);
+    border: 1px solid var(--border); border-radius: 16px;
+    padding: 24px; position: relative; overflow: hidden;
+    transition: border-color .2s;
+  }
+  #view-stocks5 .sd-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, #7c3aed, #a78bfa);
+  }
+  #view-stocks5 .sd-card:hover { border-color: rgba(124,58,237,0.4); }
+  #view-stocks5 .sd-head {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    flex-wrap: wrap; gap: 16px; margin-bottom: 16px;
+    padding-bottom: 16px; border-bottom: 1px solid var(--border);
+  }
+  #view-stocks5 .sd-title-block { display: flex; align-items: center; gap: 14px; }
+  #view-stocks5 .sd-icon {
+    width: 56px; height: 56px; border-radius: 14px;
+    background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(167,139,250,0.1));
+    border: 1px solid rgba(124,58,237,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem; flex-shrink: 0;
+  }
+  #view-stocks5 .sd-ticker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.6rem; font-weight: 700;
+    color: #a78bfa; letter-spacing: -0.02em;
+    line-height: 1; display: flex; align-items: center; gap: 10px;
+  }
+  #view-stocks5 .sd-name { font-size: 0.85rem; color: var(--muted); margin-top: 4px; }
+  #view-stocks5 .sd-sector {
+    display: inline-block; margin-top: 4px;
+    font-size: 0.7rem; font-weight: 600;
+    padding: 2px 10px; border-radius: 100px;
+    background: rgba(124,58,237,0.15); color: #c4b5fd;
+    text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  #view-stocks5 .sd-rating-block { text-align: right; }
+  #view-stocks5 .sd-rating {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.2rem; font-weight: 700;
+    padding: 4px 14px; border-radius: 8px;
+    display: inline-block;
+  }
+  #view-stocks5 .sd-rating.buy { background: rgba(37,214,149,0.2); color: var(--green); border: 1px solid var(--green); }
+  #view-stocks5 .sd-rating.hold { background: rgba(255,181,71,0.2); color: var(--amber); border: 1px solid var(--amber); }
+  #view-stocks5 .sd-rating.acc { background: rgba(54,214,197,0.2); color: var(--teal); border: 1px solid var(--teal); }
+  #view-stocks5 .sd-tp { font-size: 0.78rem; color: var(--muted); margin-top: 6px; font-family: 'JetBrains Mono', monospace; }
+
+  #view-stocks5 .sd-live {
+    display: flex; gap: 16px; align-items: baseline;
+    margin-top: 8px; font-family: 'JetBrains Mono', monospace;
+  }
+  #view-stocks5 .sd-live-price { font-size: 1.4rem; font-weight: 700; color: #fff; }
+  #view-stocks5 .sd-live-change { font-size: 0.9rem; font-weight: 600; }
+  #view-stocks5 .sd-live-change.up { color: var(--green); }
+  #view-stocks5 .sd-live-change.down { color: var(--red); }
+
+  #view-stocks5 .sd-thesis {
+    background: rgba(124,58,237,0.08); border-left: 3px solid #7c3aed;
+    padding: 14px 18px; border-radius: 8px; margin-bottom: 16px;
+    color: #d4d8e8; line-height: 1.6; font-size: 0.92rem;
+  }
+  #view-stocks5 .sd-thesis strong { color: #a78bfa; }
+
+  #view-stocks5 .sd-business {
+    color: #c9cee0; line-height: 1.65; font-size: 0.9rem;
+    margin-bottom: 18px;
+  }
+
+  #view-stocks5 .sd-grid2 {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 18px;
+  }
+  @media (max-width: 768px) {
+    #view-stocks5 .sd-grid2 { grid-template-columns: 1fr; }
+  }
+  #view-stocks5 .sd-section {
+    background: rgba(0,0,0,0.25); border-radius: 10px;
+    padding: 14px 16px;
+  }
+  #view-stocks5 .sd-section-title {
+    font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; margin-bottom: 10px;
+  }
+  #view-stocks5 .sd-strengths .sd-section-title { color: var(--green); }
+  #view-stocks5 .sd-risks .sd-section-title { color: var(--red); }
+  #view-stocks5 .sd-list { list-style: none; padding: 0; margin: 0; }
+  #view-stocks5 .sd-list li {
+    color: #c9cee0; font-size: 0.85rem; line-height: 1.55;
+    margin-bottom: 8px; padding-left: 18px; position: relative;
+  }
+  #view-stocks5 .sd-strengths .sd-list li::before {
+    content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700;
+  }
+  #view-stocks5 .sd-risks .sd-list li::before {
+    content: '✕'; position: absolute; left: 0; color: var(--red); font-weight: 700;
+  }
+
+  #view-stocks5 .sd-fin-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px; margin-bottom: 16px;
+  }
+  #view-stocks5 .sd-fin-item {
+    background: rgba(0,0,0,0.25); border: 1px solid var(--border);
+    border-radius: 10px; padding: 12px 14px;
+  }
+  #view-stocks5 .sd-fin-label {
+    font-size: 0.7rem; color: var(--muted); text-transform: uppercase;
+    letter-spacing: 0.05em; margin-bottom: 4px;
+  }
+  #view-stocks5 .sd-fin-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.05rem; font-weight: 700; color: #fff;
+  }
+
+  #view-stocks5 .sd-tailwind {
+    background: rgba(37,214,149,0.06); border-left: 3px solid var(--green);
+    padding: 12px 16px; border-radius: 8px; font-size: 0.85rem;
+    color: #c9cee0; line-height: 1.55;
+  }
+  #view-stocks5 .sd-tailwind strong { color: var(--green); }
+
+  #view-stocks5 .sd-summary {
+    background: linear-gradient(135deg, rgba(124,58,237,0.12), rgba(167,139,250,0.04));
+    border: 1px solid rgba(124,58,237,0.3); border-radius: 14px;
+    padding: 20px 24px; margin-bottom: 24px;
+  }
+  #view-stocks5 .sd-summary h3 {
+    font-size: 1.15rem; color: #fff; margin-bottom: 8px;
+  }
+  #view-stocks5 .sd-summary p { color: #d4d8e8; font-size: 0.9rem; line-height: 1.6; }
+
+  /* Longtunman-style narrative sections */
+  #view-stocks5 .sd-section-h {
+    font-size: 1.05rem; font-weight: 700; color: #fff;
+    margin: 22px 0 12px; padding-bottom: 8px;
+    border-bottom: 2px solid rgba(124,58,237,0.4);
+    display: flex; align-items: center; gap: 8px;
+  }
+  #view-stocks5 .sd-narrative {
+    color: #d4d8e8; line-height: 1.75; font-size: 0.93rem;
+    margin-bottom: 10px;
+  }
+  #view-stocks5 .sd-narrative strong { color: #fbbf24; font-weight: 600; }
+  #view-stocks5 .sd-narrative em { color: #a78bfa; font-style: normal; font-weight: 600; }
+
+  #view-stocks5 .sd-shock-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px; margin: 14px 0;
+  }
+  #view-stocks5 .sd-shock-item {
+    background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.25);
+    border-radius: 10px; padding: 12px 14px;
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  #view-stocks5 .sd-shock-icon { font-size: 1.3rem; flex-shrink: 0; }
+  #view-stocks5 .sd-shock-text {
+    font-size: 0.85rem; color: #e5e7eb; line-height: 1.5;
+  }
+  #view-stocks5 .sd-shock-text strong { color: #fbbf24; }
+
+  #view-stocks5 .sd-competitor-list {
+    display: flex; flex-direction: column; gap: 8px; margin: 10px 0;
+  }
+  #view-stocks5 .sd-competitor-item {
+    background: rgba(0,0,0,0.25); border-left: 3px solid #ef4444;
+    padding: 10px 14px; border-radius: 6px;
+    font-size: 0.86rem; color: #d1d5db; line-height: 1.5;
+  }
+  #view-stocks5 .sd-competitor-item strong { color: #ef4444; }
+
+  #view-stocks5 .sd-strategy-box {
+    background: linear-gradient(135deg, rgba(54,214,197,0.08), rgba(79,140,255,0.04));
+    border: 1px solid rgba(54,214,197,0.3);
+    border-radius: 12px; padding: 16px 20px;
+    color: #d4d8e8; line-height: 1.7; font-size: 0.92rem;
+    margin: 12px 0;
+  }
+  #view-stocks5 .sd-strategy-box strong { color: var(--teal); }
+
+  #view-stocks5 .sd-verdict {
+    background: linear-gradient(135deg, rgba(124,58,237,0.18), rgba(167,139,250,0.06));
+    border: 2px solid rgba(124,58,237,0.4); border-radius: 14px;
+    padding: 18px 22px; margin-top: 20px;
+    position: relative;
+  }
+  #view-stocks5 .sd-verdict::before {
+    content: '🎯'; position: absolute; top: 14px; right: 18px;
+    font-size: 1.4rem; opacity: 0.4;
+  }
+  #view-stocks5 .sd-verdict-title {
+    font-size: 0.78rem; font-weight: 700; color: #c4b5fd;
+    text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px;
+  }
+  #view-stocks5 .sd-verdict p {
+    color: #e5e7eb; font-size: 0.95rem; line-height: 1.7;
+  }
+  #view-stocks5 .sd-verdict p strong { color: #a78bfa; }
 
   /* ============ FINANCE VIEW ============ */
   #view-finance .ef-card {
@@ -577,350 +954,16 @@
   }
 
   /* ============ SECTORS VIEW ============ */
-  #view-sectors .sec-hero {
-    padding: 50px 20px 36px; text-align: center;
-    background: radial-gradient(ellipse at top, rgba(212,160,23,0.1), transparent 60%);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 20px; margin-bottom: 30px; position: relative; overflow: hidden;
-  }
-  #view-sectors .sec-hero-tag {
-    display: inline-flex; align-items: center; gap: .4rem;
-    background: rgba(212,160,23,.12); color: var(--gold);
-    font-size: .72rem; padding: .4rem 1rem; border-radius: 100px;
-    font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
-    margin-bottom: 1.2rem; border: 1px solid rgba(212,160,23,.25);
-  }
-  #view-sectors .sec-hero h2 {
-    font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 800;
-    line-height: 1.15; letter-spacing: -.02em; margin-bottom: 1rem; color: #fff;
-  }
-  #view-sectors .sec-hero h2 .gold {
-    background: linear-gradient(135deg, #fef3c7 0%, #d4a017 50%, #92400e 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  }
-  #view-sectors .sec-hero p { font-size: 1rem; color: #9ca3af; max-width: 660px; margin: 0 auto; }
-  #view-sectors .hero-stats {
-    display: flex; justify-content: center; gap: 2.5rem;
-    margin-top: 2rem; flex-wrap: wrap;
-  }
-  #view-sectors .hero-stat .v {
-    font-family: 'JetBrains Mono', monospace; font-size: 1.6rem;
-    font-weight: 700; color: #fff; line-height: 1;
-  }
-  #view-sectors .hero-stat .l {
-    font-size: .7rem; color: #6b7280; font-weight: 500;
-    text-transform: uppercase; letter-spacing: .12em; margin-top: .4rem;
-  }
 
-  #view-sectors .eyebrow {
-    font-size: .72rem; font-weight: 700; letter-spacing: .2em;
-    color: var(--gold); text-transform: uppercase; margin-bottom: .6rem;
-  }
-  #view-sectors .section-title {
-    font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700;
-    color: #fff; letter-spacing: -.02em; margin-bottom: .5rem;
-  }
-  #view-sectors .section-title .gold { color: var(--gold); }
-  #view-sectors .section-sub {
-    font-size: .92rem; color: #9ca3af; margin-bottom: 1.5rem; max-width: 700px;
-  }
 
-  #view-sectors .gdp-hero {
-    background: linear-gradient(135deg, #11151f 0%, #1a1f2e 100%);
-    border: 1px solid #1f2937; border-radius: 18px;
-    padding: 1.8rem; margin-bottom: 1.2rem; position: relative; overflow: hidden;
-  }
-  #view-sectors .gdp-hero::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, #10b981, #d4a017, #5e72e4);
-  }
-  #view-sectors .gdp-hero-grid {
-    display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; align-items: center;
-  }
-  @media (max-width: 700px) { #view-sectors .gdp-hero-grid { grid-template-columns: 1fr; text-align: center; } }
-  #view-sectors .gdp-tag {
-    display: inline-block; background: rgba(16,185,129,.12); color: #10b981;
-    font-size: .7rem; padding: .35rem 1rem; border-radius: 100px;
-    font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-    margin-bottom: .8rem; border: 1px solid rgba(16,185,129,.25);
-  }
-  #view-sectors .gdp-headline {
-    font-size: clamp(1.2rem, 3vw, 1.7rem); font-weight: 700;
-    color: #fff; line-height: 1.3; margin-bottom: .5rem;
-  }
-  #view-sectors .gdp-headline .gold { color: var(--gold); }
-  #view-sectors .gdp-headline .green { color: #10b981; }
-  #view-sectors .gdp-sub { font-size: .85rem; color: #9ca3af; line-height: 1.6; }
-  #view-sectors .gdp-big {
-    text-align: center; padding: 1rem 1.3rem;
-    background: rgba(212,160,23,.08); border: 1px solid rgba(212,160,23,.2);
-    border-radius: 14px; min-width: 160px;
-  }
-  #view-sectors .gdp-big .num {
-    font-family: 'JetBrains Mono', monospace; font-size: 2rem;
-    font-weight: 700; color: var(--gold); line-height: 1;
-  }
-  #view-sectors .gdp-big .unit { font-size: .75rem; color: var(--gold-light); margin-top: .3rem; font-weight: 600; }
-  #view-sectors .gdp-big .label { font-size: .65rem; color: #9ca3af; margin-top: .5rem; text-transform: uppercase; letter-spacing: .08em; }
 
-  #view-sectors .major-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: .9rem; margin-top: .8rem;
-  }
-  @media (max-width: 768px) { #view-sectors .major-grid { grid-template-columns: 1fr; } }
-  #view-sectors .major-card {
-    background: linear-gradient(135deg, #0a0e1a 0%, #11151f 100%);
-    border: 1px solid #1f2937; border-radius: 14px;
-    padding: 1.3rem 1.1rem; position: relative; overflow: hidden;
-  }
-  #view-sectors .major-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
-  #view-sectors .major-card.services::before { background: linear-gradient(90deg, #10b981, #5eead4); }
-  #view-sectors .major-card.industry::before { background: linear-gradient(90deg, #5e72e4, #818cf8); }
-  #view-sectors .major-card.agri::before { background: linear-gradient(90deg, #fbbf24, #f59e0b); }
-  #view-sectors .major-card.services { border-color: rgba(16,185,129,.3); }
-  #view-sectors .major-card .ic { font-size: 1.5rem; margin-bottom: .5rem; }
-  #view-sectors .major-card .pct {
-    font-family: 'JetBrains Mono', monospace; font-size: 2.2rem;
-    font-weight: 700; line-height: 1; margin-bottom: .3rem;
-  }
-  #view-sectors .major-card.services .pct { color: #10b981; }
-  #view-sectors .major-card.industry .pct { color: #5e72e4; }
-  #view-sectors .major-card.agri .pct { color: var(--gold-light); }
-  #view-sectors .major-card .nm { font-size: 1rem; font-weight: 700; color: #fff; }
-  #view-sectors .major-card .en {
-    font-size: .7rem; color: #6b7280; text-transform: uppercase;
-    letter-spacing: .1em; font-weight: 600; margin-bottom: .7rem;
-  }
-  #view-sectors .major-card .desc {
-    font-size: .76rem; color: #9ca3af; line-height: 1.55;
-    margin-bottom: .8rem; min-height: 50px;
-  }
-  #view-sectors .major-card .tag {
-    display: inline-block; font-size: .66rem; font-weight: 700;
-    color: var(--gold); background: rgba(212,160,23,.1);
-    border: 1px solid rgba(212,160,23,.25); padding: .3rem .65rem;
-    border-radius: 100px;
-  }
 
-  #view-sectors .core5-card {
-    background: linear-gradient(135deg, rgba(212,160,23,.15) 0%, rgba(251,191,36,.05) 100%);
-    border: 2px solid rgba(212,160,23,.4); border-radius: 18px;
-    padding: 1.6rem 1.8rem; margin: 1.2rem 0; position: relative; overflow: hidden;
-  }
-  #view-sectors .core5-card::before {
-    content: '💎'; position: absolute; top: 1rem; right: 1.3rem;
-    font-size: 2rem; opacity: .4;
-  }
-  #view-sectors .core5-tag {
-    display: inline-block; background: var(--gold); color: #0a0e1a;
-    font-size: .7rem; padding: .35rem 1rem; border-radius: 100px;
-    font-weight: 800; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .8rem;
-  }
-  #view-sectors .core5-title { font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: .4rem; }
-  #view-sectors .core5-title .gold { color: var(--gold-light); }
-  #view-sectors .core5-sub { font-size: .85rem; color: #d1d5db; margin-bottom: 1.2rem; }
-  #view-sectors .core5-grid {
-    display: grid; grid-template-columns: repeat(5, 1fr);
-    gap: .5rem; margin-bottom: 1rem;
-  }
-  @media (max-width: 700px) { #view-sectors .core5-grid { grid-template-columns: repeat(2, 1fr); } }
-  #view-sectors .core5-item {
-    background: rgba(0,0,0,.35); border: 1px solid rgba(212,160,23,.25);
-    border-radius: 10px; padding: .8rem .6rem; text-align: center;
-  }
-  #view-sectors .core5-item .ic { font-size: 1.3rem; margin-bottom: .25rem; }
-  #view-sectors .core5-item .nm { font-size: .7rem; color: var(--gold-light); font-weight: 700; margin-bottom: .15rem; }
-  #view-sectors .core5-item .pc { font-family: 'JetBrains Mono', monospace; font-size: 1.05rem; font-weight: 700; color: #fff; }
-  #view-sectors .core5-sum {
-    display: grid; grid-template-columns: auto 1fr; gap: 1rem;
-    align-items: center; padding: .9rem 1.2rem;
-    background: rgba(212,160,23,.12); border-radius: 12px;
-    margin-top: 1rem; border: 1px solid rgba(212,160,23,.3);
-  }
-  @media (max-width: 600px) { #view-sectors .core5-sum { grid-template-columns: 1fr; text-align: center; } }
-  #view-sectors .core5-sum .total {
-    font-family: 'JetBrains Mono', monospace; font-size: 2.2rem;
-    font-weight: 800; color: var(--gold-light); line-height: 1;
-  }
-  #view-sectors .core5-sum .desc { font-size: .82rem; color: #d1d5db; line-height: 1.5; }
-  #view-sectors .core5-sum .desc strong { color: #fff; }
 
-  #view-sectors .gdp-bars {
-    background: #11151f; border: 1px solid #1f2937;
-    border-radius: 18px; padding: 1.5rem; margin-bottom: 1.2rem;
-  }
-  #view-sectors .gdp-bars-title { font-size: .95rem; font-weight: 700; color: #fff; margin-bottom: .3rem; }
-  #view-sectors .gdp-bars-sub { font-size: .76rem; color: #9ca3af; margin-bottom: 1.2rem; }
-  #view-sectors .gdp-bars-sub a { color: var(--gold); text-decoration: none; }
-  #view-sectors .gdp-bar-row {
-    display: grid; grid-template-columns: 180px 1fr 70px;
-    gap: 1rem; align-items: center; padding: .65rem 0;
-    border-bottom: 1px solid #1f2937;
-  }
-  @media (max-width: 600px) { #view-sectors .gdp-bar-row { grid-template-columns: 130px 1fr 60px; gap: .6rem; } }
-  #view-sectors .gdp-bar-label { display: flex; align-items: center; gap: .5rem; font-size: .82rem; color: #e5e7eb; font-weight: 600; }
-  #view-sectors .gdp-bar-track { background: #0a0e1a; height: 14px; border-radius: 7px; overflow: hidden; border: 1px solid #1f2937; }
-  #view-sectors .gdp-bar-fill { height: 100%; border-radius: 6px; }
-  #view-sectors .gdp-bar-pct {
-    font-family: 'JetBrains Mono', monospace; font-size: .9rem;
-    font-weight: 700; color: #fff; text-align: right;
-  }
-  #view-sectors .gdp-bar-row.featured .gdp-bar-pct { color: var(--gold); }
-  #view-sectors .gdp-bar-row.muted .gdp-bar-pct { color: #9ca3af; }
-  #view-sectors .gdp-group {
-    margin-top: 1.3rem; margin-bottom: .5rem;
-    padding: .7rem 1rem; display: grid;
-    grid-template-columns: 1fr auto; gap: 1rem; align-items: center;
-    border-left: 4px solid; border-radius: 0 8px 8px 0; background: #0a0e1a;
-  }
-  #view-sectors .gdp-group:first-of-type { margin-top: 0; }
-  #view-sectors .gdp-group.services { border-color: #10b981; }
-  #view-sectors .gdp-group.industry { border-color: #5e72e4; }
-  #view-sectors .gdp-group.agri { border-color: var(--gold-light); }
-  #view-sectors .gdp-group .name { font-size: .95rem; font-weight: 700; color: #fff; }
-  #view-sectors .gdp-group .desc { font-size: .72rem; color: #9ca3af; margin-top: .15rem; }
-  #view-sectors .gdp-group .grp-pct { font-family: 'JetBrains Mono', monospace; font-size: 1.4rem; font-weight: 700; }
-  #view-sectors .gdp-group.services .grp-pct { color: #10b981; }
-  #view-sectors .gdp-group.industry .grp-pct { color: #5e72e4; }
-  #view-sectors .gdp-group.agri .grp-pct { color: var(--gold-light); }
-  #view-sectors .gdp-note {
-    margin-top: 1rem; padding: 1rem 1.2rem;
-    background: rgba(94,114,228,.06); border-left: 3px solid #5e72e4;
-    border-radius: 8px; font-size: .8rem; color: #d1d5db; line-height: 1.6;
-  }
-  #view-sectors .gdp-note strong { color: #fff; }
-  #view-sectors .gdp-note a { color: var(--gold); text-decoration: none; }
 
-  #view-sectors .gdp-insight-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: .9rem; margin-top: 1.2rem;
-  }
-  #view-sectors .gdp-insight {
-    background: #11151f; border: 1px solid #1f2937;
-    border-radius: 14px; padding: 1.2rem 1.1rem; position: relative;
-  }
-  #view-sectors .gdp-insight::before {
-    content: ''; position: absolute; top: 0; left: 0;
-    width: 3px; height: 100%; border-radius: 14px 0 0 14px;
-  }
-  #view-sectors .gdp-insight.growth::before { background: #10b981; }
-  #view-sectors .gdp-insight.warn::before { background: var(--gold-light); }
-  #view-sectors .gdp-insight.risk::before { background: #ef4444; }
-  #view-sectors .gdp-insight .ic { font-size: 1.3rem; margin-bottom: .5rem; }
-  #view-sectors .gdp-insight .h { font-size: .9rem; font-weight: 700; color: #fff; margin-bottom: .4rem; }
-  #view-sectors .gdp-insight .b { font-size: .78rem; color: #9ca3af; line-height: 1.55; }
-  #view-sectors .gdp-insight .b strong { color: var(--gold-light); }
 
-  #view-sectors .sec-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1rem; margin-top: 1.2rem;
-  }
-  #view-sectors .sec-card {
-    background: linear-gradient(135deg, #11151f 0%, #1a1f2e 100%);
-    border: 1px solid #1f2937; border-radius: 16px;
-    padding: 1.4rem; text-decoration: none; color: inherit;
-    transition: .3s; position: relative; display: flex;
-    flex-direction: column; gap: .9rem; overflow: hidden;
-  }
-  #view-sectors .sec-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0;
-    height: 3px; background: var(--gold); opacity: .7; transition: opacity .3s;
-  }
-  #view-sectors .sec-card:hover {
-    border-color: var(--gold); transform: translateY(-3px);
-    box-shadow: 0 16px 32px -10px rgba(212,160,23,.2);
-  }
-  #view-sectors .sec-card:hover::before { opacity: 1; }
-  #view-sectors .sec-card.core5 { border-color: var(--gold); }
-  #view-sectors .sec-card.core5::before { opacity: 1; }
-  #view-sectors .sec-card.core5 .core-d {
-    position: absolute; top: 1rem; right: 1.2rem;
-    font-size: 1.1rem;
-  }
-  #view-sectors .sec-head { display: flex; align-items: center; gap: .7rem; }
-  #view-sectors .sec-icon-box {
-    font-size: 1.5rem; width: 42px; height: 42px;
-    background: rgba(212,160,23,.1); border: 1px solid rgba(212,160,23,.2);
-    border-radius: 11px; display: flex; align-items: center;
-    justify-content: center; flex-shrink: 0;
-  }
-  #view-sectors .sec-info .sec-name { font-size: .92rem; font-weight: 700; color: #fff; }
-  #view-sectors .sec-info .sec-en { font-size: .7rem; color: #9ca3af; margin-top: .12rem; }
-  #view-sectors .sec-info .sec-count { font-size: .65rem; color: #6b7280; margin-top: .2rem; }
-  #view-sectors .winner-block {
-    padding: .8rem; background: rgba(0,0,0,.3);
-    border-radius: 12px; border: 1px solid rgba(212,160,23,.15);
-  }
-  #view-sectors .winner-label {
-    font-size: .6rem; color: var(--gold); font-weight: 700;
-    letter-spacing: .15em; text-transform: uppercase; margin-bottom: .25rem;
-  }
-  #view-sectors .winner-ticker {
-    font-family: 'JetBrains Mono', monospace; font-size: 1.5rem;
-    font-weight: 700; color: var(--gold); letter-spacing: -.02em; line-height: 1;
-  }
-  #view-sectors .winner-company { font-size: .7rem; color: #9ca3af; margin-top: .15rem; }
-  #view-sectors .sec-stats {
-    display: grid; grid-template-columns: 1fr 1fr 1fr;
-    gap: .4rem; padding-top: .7rem; border-top: 1px solid #1f2937;
-  }
-  #view-sectors .sec-stats .st { text-align: center; }
-  #view-sectors .sec-stats .l {
-    font-size: .56rem; color: #6b7280; font-weight: 600;
-    text-transform: uppercase; letter-spacing: .05em; margin-bottom: .15rem;
-  }
-  #view-sectors .sec-stats .v { font-size: .82rem; font-weight: 700; color: #fff; font-family: 'JetBrains Mono', monospace; }
-  #view-sectors .sec-stats .v.green { color: #10b981; }
-  #view-sectors .sec-stats .v.amber { color: var(--gold-light); }
-  #view-sectors .sec-stats .v.live {
-    color: #10b981; font-size: .68rem;
-    display: inline-flex; align-items: center; gap: .2rem;
-  }
-  #view-sectors .sec-stats .v.live::before {
-    content: ''; width: 6px; height: 6px;
-    background: #10b981; border-radius: 50%; animation: livePulse 2s infinite;
-  }
   @keyframes livePulse { 0%,100% { opacity: 1; } 50% { opacity: .4; } }
 
-  #view-sectors .info-strip {
-    background: linear-gradient(135deg, rgba(212,160,23,.06), rgba(16,185,129,.04));
-    border: 1px solid #1f2937; border-radius: 14px;
-    padding: 1.3rem 1.6rem; margin: 1.5rem 0;
-    display: grid; grid-template-columns: auto 1fr;
-    gap: 1rem; align-items: center;
-  }
-  @media (max-width: 600px) { #view-sectors .info-strip { grid-template-columns: 1fr; text-align: center; } }
-  #view-sectors .info-icon {
-    width: 48px; height: 48px; flex-shrink: 0;
-    background: linear-gradient(135deg, var(--gold), var(--gold-light));
-    border-radius: 12px; display: flex; align-items: center;
-    justify-content: center; font-size: 1.4rem; color: #0a0e1a;
-  }
-  #view-sectors .info-text .t {
-    font-size: .76rem; color: var(--gold); font-weight: 700;
-    letter-spacing: .1em; text-transform: uppercase; margin-bottom: .3rem;
-  }
-  #view-sectors .info-text .d { font-size: .9rem; color: #d1d5db; line-height: 1.6; }
-  #view-sectors .info-text .d a { color: var(--gold); text-decoration: none; font-weight: 600; }
 
-  #view-sectors .quick-links {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 1rem; margin-top: 1rem;
-  }
-  @media (max-width: 768px) { #view-sectors .quick-links { grid-template-columns: 1fr; } }
-  #view-sectors .qlink {
-    background: #11151f; border: 1px solid #1f2937;
-    border-radius: 12px; padding: 1.1rem; text-decoration: none;
-    color: inherit; transition: .2s; display: flex; gap: .9rem; align-items: start;
-  }
-  #view-sectors .qlink:hover { border-color: var(--gold); background: #1a1f2e; }
-  #view-sectors .qlink .ic {
-    font-size: 1.3rem; width: 38px; height: 38px; flex-shrink: 0;
-    background: #0a0e1a; border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    border: 1px solid #1f2937;
-  }
-  #view-sectors .qlink .text .t { font-size: .9rem; font-weight: 700; color: #fff; margin-bottom: .15rem; }
-  #view-sectors .qlink .text .d { font-size: .76rem; color: #9ca3af; line-height: 1.4; }
 
   .view { display: none; }
   .view.active { display: block; animation: fadeIn .3s ease; }
@@ -970,6 +1013,7 @@
   <button class="tab-btn" data-view="valuation">💎 Stock Valuation</button>
   <button class="tab-btn" data-view="thesis">🎯 Long-term Thesis</button>
   <button class="tab-btn" data-view="sectors">🏭 Sector Coverage</button>
+  <button class="tab-btn" data-view="stocks5">⭐ หุ้น 5 ตัวที่สนใจ</button>
 </div>
 
 <!-- ============ PORTFOLIO VIEW ============ -->
@@ -1521,32 +1565,23 @@
 
 </div>
 
+
 <!-- ============ SECTORS VIEW ============ -->
 <div class="view" id="view-sectors">
 
   <div class="sec-hero">
-    <div class="sec-hero-tag">⬢ วิเคราะห์หุ้นไทยรายอุตสาหกรรม</div>
-    <h2>วิเคราะห์เซกเตอร์ของ <span class="gold">SET</span> เชิงลึก</h2>
-    <p>บทวิเคราะห์แบบนักวิเคราะห์ดีเด่น · ใช้ข้อมูลจริงจาก SET, One Report, และเอกสารปฐมภูมิ · ครอบคลุมทุกอุตสาหกรรมสำคัญในตลาดหุ้นไทย</p>
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="v">10</div><div class="l">เซกเตอร์ Live</div></div>
-      <div class="hero-stat"><div class="v">25+</div><div class="l">บริษัทเด่น</div></div>
-      <div class="hero-stat"><div class="v">200+</div><div class="l">ข้อมูลจริง</div></div>
-      <div class="hero-stat"><div class="v">2568</div><div class="l">ข้อมูลล่าสุด</div></div>
-    </div>
+    <div class="sec-hero-tag">⬢ วิเคราะห์ภาพใหญ่เศรษฐกิจไทย</div>
+    <h2>ภาพใหญ่ <span class="gold">GDP ไทย</span> · ก่อนเลือกหุ้น</h2>
+    <p>ดู Sector ที่วิเคราะห์ในเว็บนี้ มีน้ำหนักใน GDP ไทยเท่าไหร่ · ข้อมูล NESDC ปี 2567-2568</p>
   </div>
 
   <section style="margin-bottom: 30px;">
-    <div class="eyebrow">⬢ Big Picture · Macro Context</div>
-    <h2 class="section-title">ภาพใหญ่ <span class="gold">GDP ไทย</span> · ก่อนเลือกหุ้น</h2>
-    <p class="section-sub">ดู Sector ที่วิเคราะห์ในเว็บนี้ มีน้ำหนักใน GDP ไทยเท่าไหร่ · ข้อมูล NESDC ปี 2567-2568</p>
-
     <div class="gdp-hero">
       <div class="gdp-hero-grid">
         <div>
           <div class="gdp-tag">📊 Thailand GDP · NESDC 2567</div>
           <h3 class="gdp-headline">เศรษฐกิจไทย <span class="gold">฿18.0 ล้านล้าน</span><br>💎 <span class="green">Core 5 Sector = 32.6% ของ GDP</span></h3>
-          <p class="gdp-sub"><strong style="color:var(--gold-light)">💎 Core 5 ที่นักลงทุนสนใจ:</strong> Healthcare · Commerce · Telecom · Tourism · Property = <strong style="color:var(--gold)">~฿5.9 ล้านล้านบาท (32.6% GDP)</strong> · ส่วน 5 sector ที่เหลือ (Manufacturing, Agriculture, Financial, Transport, Construction) รวม ~60% GDP เป็น Macro context ประกอบ</p>
+          <p class="gdp-sub"><strong style="color:var(--gold-light)">💎 Core 5 ที่นักลงทุนสนใจ:</strong> Healthcare · Commerce · Telecom · Tourism · Property = <strong style="color:var(--gold)">~฿5.9 ล้านล้านบาท (32.6% GDP)</strong></p>
         </div>
         <div class="gdp-big">
           <div class="num">2.5%</div>
@@ -1747,227 +1782,6 @@
   </section>
 
   <section style="margin-bottom: 30px;">
-    <div class="eyebrow">Sector Coverage</div>
-    <h2 class="section-title">เลือก <span class="gold">อุตสาหกรรม</span> ที่สนใจ</h2>
-    <p class="section-sub">การ์ด <strong style="color:var(--gold-light)">กรอบทอง 💎</strong> = Core 5 ที่นักลงทุนสนใจ (32.6% GDP) · การ์ดอื่นเป็น Macro Context</p>
-
-    <div class="sec-grid">
-      <a href="thai-stock-analysis/healthcare-deep-dive.html" class="sec-card core5">
-        <span class="core-d">💎</span>
-        <div class="sec-head">
-          <div class="sec-icon-box">🏥</div>
-          <div class="sec-info">
-            <div class="sec-name">Healthcare</div>
-            <div class="sec-en">การแพทย์ · BDMS · BH</div>
-            <div class="sec-count">2.6% GDP · 14 บริษัท</div>
-          </div>
-        </div>
-        <div class="winner-block">
-          <div class="winner-label">★ Sector Winner</div>
-          <div class="winner-ticker">BDMS</div>
-          <div class="winner-company">กรุงเทพดุสิตเวชการ</div>
-        </div>
-        <div class="sec-stats">
-          <div class="st"><div class="l">Rev Share</div><div class="v">36.6%</div></div>
-          <div class="st"><div class="l">Rating</div><div class="v green">★ BUY</div></div>
-          <div class="st"><div class="l">Status</div><div class="v live">LIVE</div></div>
-        </div>
-      </a>
-
-      <a href="thai-stock-analysis/commerce-deep-dive.html" class="sec-card core5">
-        <span class="core-d">💎</span>
-        <div class="sec-head">
-          <div class="sec-icon-box">🛒</div>
-          <div class="sec-info">
-            <div class="sec-name">Commerce</div>
-            <div class="sec-en">ค้าปลีก · CPALL · CPAXT · CRC</div>
-            <div class="sec-count">16.5% GDP · 22 บริษัท</div>
-          </div>
-        </div>
-        <div class="winner-block">
-          <div class="winner-label">★ Sector Winner</div>
-          <div class="winner-ticker">CPALL</div>
-          <div class="winner-company">7-Eleven · CP All</div>
-        </div>
-        <div class="sec-stats">
-          <div class="st"><div class="l">Rev Share</div><div class="v">~45%</div></div>
-          <div class="st"><div class="l">Rating</div><div class="v green">★ BUY</div></div>
-          <div class="st"><div class="l">Status</div><div class="v live">LIVE</div></div>
-        </div>
-      </a>
-
-      <a href="thai-stock-analysis/telecom-deep-dive.html" class="sec-card core5">
-        <span class="core-d">💎</span>
-        <div class="sec-head">
-          <div class="sec-icon-box">📡</div>
-          <div class="sec-info">
-            <div class="sec-name">Telecom</div>
-            <div class="sec-en">โทรคมนาคม · ADVANC · TRUE</div>
-            <div class="sec-count">3.8% GDP · 7 บริษัท</div>
-          </div>
-        </div>
-        <div class="winner-block">
-          <div class="winner-label">★ Sector Winner</div>
-          <div class="winner-ticker">ADVANC</div>
-          <div class="winner-company">AIS · Mobile #1</div>
-        </div>
-        <div class="sec-stats">
-          <div class="st"><div class="l">Rev Share</div><div class="v">~48%</div></div>
-          <div class="st"><div class="l">Rating</div><div class="v green">★ BUY</div></div>
-          <div class="st"><div class="l">Status</div><div class="v live">LIVE</div></div>
-        </div>
-      </a>
-
-      <a href="thai-stock-analysis/tourism-deep-dive.html" class="sec-card core5">
-        <span class="core-d">💎</span>
-        <div class="sec-head">
-          <div class="sec-icon-box">🏖️</div>
-          <div class="sec-info">
-            <div class="sec-name">Tourism & Leisure</div>
-            <div class="sec-en">ท่องเที่ยว · MINT · AOT · CENTEL</div>
-            <div class="sec-count">6.5% GDP · 18 บริษัท</div>
-          </div>
-        </div>
-        <div class="winner-block">
-          <div class="winner-label">★ Sector Winner</div>
-          <div class="winner-ticker">MINT</div>
-          <div class="winner-company">Minor International</div>
-        </div>
-        <div class="sec-stats">
-          <div class="st"><div class="l">Rev Share</div><div class="v">~62%</div></div>
-          <div class="st"><div class="l">Rating</div><div class="v green">★ BUY</div></div>
-          <div class="st"><div class="l">Status</div><div class="v live">LIVE</div></div>
-        </div>
-      </a>
-
-      <a href="thai-stock-analysis/property-rental-deep-dive.html" class="sec-card core5">
-        <span class="core-d">💎</span>
-        <div class="sec-head">
-          <div class="sec-icon-box">🏢</div>
-          <div class="sec-info">
-            <div class="sec-name">Property & Rental</div>
-            <div class="sec-en">ให้เช่า · CPN · WHA · AMATA</div>
-            <div class="sec-count">3.2% GDP · 15 บริษัท</div>
-          </div>
-        </div>
-        <div class="winner-block">
-          <div class="winner-label">★ Sector Winner</div>
-          <div class="winner-ticker">CPN</div>
-          <div class="winner-company">Central Pattana</div>
-        </div>
-        <div class="sec-stats">
-          <div class="st"><div class="l">Rev Share</div><div class="v">~67%</div></div>
-          <div class="st"><div class="l">Rating</div><div class="v green">★ BUY</div></div>
-          <div class="st"><div class="l">Status</div><div class="v live">LIVE</div></div>
-        </div>
-      </a>
-
-      <a href="thai-stock-analysis/manufacturing-deep-dive.html" class="sec-card">
-        <div class="sec-head">
-          <div class="sec-icon-box">🏭</div>
-          <div class="sec-info">
-            <div class="sec-name">Manufacturing</div>
-            <div class="sec-en">การผลิต · SCC · PTTGC · DELTA</div>
-            <div class="sec-count">25.4% ของ GDP ไทย</div>
-          </div>
-        </div>
-        <div class="winner-block">
-          <div class="winner-label">★ Sector Winner</div>
-          <div class="winner-ticker">SCC</div>
-          <div class="winner-company">ปูนซิเมนต์ไทย</div>
-        </div>
-        <div class="sec-stats">
-          <div class="st"><div class="l">Rev Share</div><div class="v">~32%</div></div>
-          <div class="st"><div class="l">Rating</div><div class="v amber">★ HOLD</div></div>
-          <div class="st"><div class="l">Status</div><div class="v live">LIVE</div></div>
-        </div>
-      </a>
-
-      <a href="thai-stock-analysis/agriculture-deep-dive.html" class="sec-card">
-        <div class="sec-head">
-          <div class="sec-icon-box">🌾</div>
-          <div class="sec-info">
-            <div class="sec-name">Agriculture / Agri-Food</div>
-            <div class="sec-en">เกษตร & อาหาร · CPF · TU · BTG</div>
-            <div class="sec-count">9% ของ GDP ไทย</div>
-          </div>
-        </div>
-        <div class="winner-block">
-          <div class="winner-label">★ Sector Winner</div>
-          <div class="winner-ticker">CPF</div>
-          <div class="winner-company">เจริญโภคภัณฑ์อาหาร</div>
-        </div>
-        <div class="sec-stats">
-          <div class="st"><div class="l">Rev Share</div><div class="v">~62%</div></div>
-          <div class="st"><div class="l">Rating</div><div class="v green">★ BUY</div></div>
-          <div class="st"><div class="l">Status</div><div class="v live">LIVE</div></div>
-        </div>
-      </a>
-
-      <a href="thai-stock-analysis/financial-deep-dive.html" class="sec-card">
-        <div class="sec-head">
-          <div class="sec-icon-box">💰</div>
-          <div class="sec-info">
-            <div class="sec-name">Financial / Banking</div>
-            <div class="sec-en">ธนาคาร · KBANK · BBL · SCB</div>
-            <div class="sec-count">7.6% ของ GDP ไทย</div>
-          </div>
-        </div>
-        <div class="winner-block">
-          <div class="winner-label">★ Sector Winner</div>
-          <div class="winner-ticker">KBANK</div>
-          <div class="winner-company">กสิกรไทย</div>
-        </div>
-        <div class="sec-stats">
-          <div class="st"><div class="l">Loan Share</div><div class="v">~16%</div></div>
-          <div class="st"><div class="l">Rating</div><div class="v green">★ BUY</div></div>
-          <div class="st"><div class="l">Status</div><div class="v live">LIVE</div></div>
-        </div>
-      </a>
-
-      <a href="thai-stock-analysis/transport-deep-dive.html" class="sec-card">
-        <div class="sec-head">
-          <div class="sec-icon-box">🚚</div>
-          <div class="sec-info">
-            <div class="sec-name">Transport</div>
-            <div class="sec-en">ขนส่ง · BEM · BTS · PSL</div>
-            <div class="sec-count">5.5% ของ GDP ไทย</div>
-          </div>
-        </div>
-        <div class="winner-block">
-          <div class="winner-label">★ Sector Winner</div>
-          <div class="winner-ticker">BEM</div>
-          <div class="winner-company">ทางด่วน + MRT</div>
-        </div>
-        <div class="sec-stats">
-          <div class="st"><div class="l">Rev Share</div><div class="v">~58%</div></div>
-          <div class="st"><div class="l">Rating</div><div class="v green">★ BUY</div></div>
-          <div class="st"><div class="l">Status</div><div class="v live">LIVE</div></div>
-        </div>
-      </a>
-
-      <a href="thai-stock-analysis/construction-deep-dive.html" class="sec-card">
-        <div class="sec-head">
-          <div class="sec-icon-box">🏗️</div>
-          <div class="sec-info">
-            <div class="sec-name">Construction</div>
-            <div class="sec-en">รับเหมา · CK · STEC · ITD</div>
-            <div class="sec-count">2.8% ของ GDP ไทย</div>
-          </div>
-        </div>
-        <div class="winner-block">
-          <div class="winner-label">★ Sector Winner</div>
-          <div class="winner-ticker">CK</div>
-          <div class="winner-company">ช.การช่าง</div>
-        </div>
-        <div class="sec-stats">
-          <div class="st"><div class="l">Backlog</div><div class="v">~45%</div></div>
-          <div class="st"><div class="l">Rating</div><div class="v green">★ BUY</div></div>
-          <div class="st"><div class="l">Status</div><div class="v live">LIVE</div></div>
-        </div>
-      </a>
-    </div>
-
     <div class="info-strip">
       <div class="info-icon">📡</div>
       <div class="info-text">
@@ -2010,6 +1824,17 @@
     </div>
   </section>
 
+</div>
+
+<!-- ============ STOCKS5 VIEW (Deep-dive cards for 5 favorite stocks) ============ -->
+<div class="view" id="view-stocks5">
+  <div class="sd-summary">
+    <h3>🎯 หุ้น 5 ตัวที่สนใจ — Executive Summary</h3>
+    <p>5 หุ้นไทยที่กำลัง track อย่างใกล้ชิด ครอบ 4 sectors: Healthcare (BDMS, BH), Modern Trade (CPALL), Retail Estate (CPN), Industrial-Logistics (WHA) · ข้อมูล Live ราคา + day change + P/E + Yield จาก Yahoo Finance</p>
+  </div>
+  <div class="stock-detail-grid" id="stockDetailGrid">
+    <!-- Cards rendered by JS in initStocks5() -->
+  </div>
 </div>
 
 <!-- ============ FINANCE VIEW ============ -->
@@ -2104,7 +1929,7 @@
 </div>
 
 <footer>
-  PortFolio SINTUWA · Portfolio + Valuation + Long-term Thesis + Sector Coverage + การเงินส่วนตัว · 2026
+  PortFolio SINTUWA · Portfolio + Valuation + Long-term Thesis + Sectors + Stocks5 + การเงินส่วนตัว · 2026
 </footer>
 
 </div>
@@ -2447,7 +2272,7 @@ Chart.defaults.color = '#8b94ad';
 Chart.defaults.borderColor = '#232b44';
 Chart.defaults.font.family = 'Sarabun';
 
-let portfolioReady = false, valuationReady = false, thesisReady = false, financeReady = false;
+let portfolioReady = false, valuationReady = false, thesisReady = false, financeReady = false, stocks5Ready = false;
 
 function showTab(name) {
   document.querySelectorAll('.tab-btn').forEach(b =>
@@ -2459,7 +2284,8 @@ function showTab(name) {
     portfolio: ['PortFolio SINTUWA', 'Road to Financial Freedom · Target 30M @ Age 35'],
     valuation: ['PortFolio SINTUWA', 'IRR & ROE Analysis · 10 หุ้นไทยพื้นฐานดี'],
     thesis: ['PortFolio SINTUWA', 'Long-term Thesis · ลงทุนหุ้นไทย 20 ปีข้างหน้า'],
-    sectors: ['PortFolio SINTUWA', 'Sector Coverage · วิเคราะห์ 10 อุตสาหกรรมไทยรายเซกเตอร์'],
+    sectors: ['PortFolio SINTUWA', 'Sector Coverage · GDP Big Picture + Sub-sector Analysis'],
+    stocks5: ['PortFolio SINTUWA', 'หุ้น 5 ตัวที่สนใจ · BDMS · BH · CPALL · CPN · WHA'],
     finance: ['PortFolio SINTUWA', 'การเงินส่วนตัว · รายรับ-รายจ่าย + เงินสำรองฉุกเฉิน 2026']
   };
   document.getElementById('pageTitle').textContent = titles[name][0];
@@ -2469,6 +2295,7 @@ function showTab(name) {
   if (name === 'valuation' && !valuationReady) { initValuation(); valuationReady = true; }
   if (name === 'thesis' && !thesisReady) { initThesis(); thesisReady = true; }
   if (name === 'finance' && !financeReady) { initFinance(); financeReady = true; }
+  if (name === 'stocks5' && !stocks5Ready) { initStocks5(); stocks5Ready = true; }
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -3143,6 +2970,371 @@ const CURRENT_MONTH_INDEX = (() => {
   return Math.max(0, Math.min(idx, monthlyFinance.length - 1));
 })();
 
+// === STOCKS5 DEEP-DIVE DATA (Longtunman-style narrative) ===
+const stocks5Data = [
+  {
+    ticker: 'BDMS',
+    name: 'Bangkok Dusit Medical Services',
+    sector: 'Healthcare',
+    icon: '🏥',
+    rating: 'BUY',
+    targetPrice: '฿20–22',
+    business: 'ผู้นำตลาด Healthcare ไทย — Platform 6 แบรนด์ (Bangkok Hospital, Samitivej, BNH, Paolo, Royal, BDMS Wellness Clinic) ครอบ 60+ โรงพยาบาล 24 จังหวัด',
+    thesis: 'Healthcare ชนิด <strong>"ชั้นดี"</strong> ครอบคลุมทุก segment จาก Ultra-Premium ถึง Wellness — ชนะด้วย Scale + Brand + JCI Standards ในตลาดที่ขยาย Aged Society ไทย 60+ จะโต 13M → 20M ในปี 2583',
+    story: 'ปี <strong>2515</strong> หมอ <strong>5 คน</strong> รวมตัวกันเปิด <em>"โรงพยาบาลกรุงเทพ"</em> ขนาดเล็ก ๆ ซอยเพชรบุรีตัดใหม่ 53 ปีต่อมา ที่นั่นกลายเป็น <strong>อาณาจักร Healthcare ที่ใหญ่ที่สุดในเอเชียตะวันออกเฉียงใต้</strong> ด้วยเครือข่าย 60+ โรงพยาบาล กระจาย 24 จังหวัดทั่วไทย พนักงานกว่า <strong>50,000 คน</strong> · ผู้ที่อยู่เบื้องหลังคือคุณหมอ <em>ปราเสริฐ ปราสาททองโอสถ</em> ผู้นำที่เปลี่ยนคลินิกเล็กให้กลายเป็น Healthcare Empire ที่จดทะเบียนใน SET ด้วย Market Cap หลักแสนล้านบาท',
+    businessDeep: 'BDMS ไม่ใช่ <em>"แค่โรงพยาบาล"</em> — แต่เป็น <strong>Multi-Brand Platform</strong> ที่ออกแบบให้ครอบคลุมลูกค้าทุกระดับรายได้: <strong>Bangkok Hospital</strong> (Ultra-Premium + International Hub) · <strong>Samitivej</strong> (Premium Expat) · <strong>BNH</strong> (CBD ชิดลม) · <strong>Paolo</strong> (Middle Class) · <strong>Royal Hospital Group</strong> (ตจว.) · และ <strong>BDMS Wellness Clinic</strong> (Preventive Care — Blue Ocean ที่ยังไม่มีคู่แข่งชัดเจน) · Revenue Mix: เอกชน Cash/ประกัน 78.5% · สิทธิราชการ 16.4% · ผู้ป่วยต่างชาติ ~15% (High-Margin Medical Tourism)',
+    shockFacts: [
+      { icon: '🏥', text: '<strong>60+ โรงพยาบาล</strong> ใน 24 จังหวัด — ใหญ่ที่สุดในเอเชียตะวันออกเฉียงใต้' },
+      { icon: '🏆', text: '<strong>JCI Accredited 12 แห่ง</strong> — มากที่สุดในเอเชีย (มาตรฐาน World Class)' },
+      { icon: '👨‍⚕️', text: 'มีแพทย์ในเครือ <strong>มากที่สุดในเอเชีย</strong> + พนักงาน 50,000+ คน' },
+      { icon: '📈', text: 'Revenue โต <strong>+35.1% ใน 6 ปี</strong> (฿83.8B → ฿113.3B)' },
+      { icon: '💰', text: 'OCF/Net Profit > 1.0x <strong>ทุกปีต่อเนื่อง 7 ปี</strong> = เงินสดจริง > กำไรบัญชี' },
+      { icon: '🌍', text: 'Foreign Patient Revenue <strong>~15%</strong> ของรายได้ทั้งหมด — Margin สูงสุด' }
+    ],
+    competitors: [
+      { name: 'BH (Bumrungrad)', detail: '<strong>Single Hospital พรีเมี่ยม</strong> · Rev ฿25.4B แต่ Margin 29.5% (สูงกว่า BDMS เกือบ 2x) — เป็นคู่แข่งโดยตรง Top Income Segment' },
+      { name: 'Vibhavadi (VIBHA)', detail: 'เครือ <strong>เสือใต้</strong> · มี Phyathai + Paolo (เพิ่งขายให้ BDMS) · Mid-tier' },
+      { name: 'Praram 9 (PR9)', detail: '<strong>Specialty Hospital</strong> เน้นมะเร็ง + Heart · Margin ดี + Niche' },
+      { name: 'Chularat (CHG)', detail: '<strong>โรงพยาบาลฝั่งตะวันออก</strong> ครองตลาดแถบฉะเชิงเทรา-ระยอง (EEC Tailwind)' }
+    ],
+    futureStrategy: '<strong>BDMS Wellness Clinic ขยาย 50 → 200+ สาขา</strong> ในระยะ 10 ปี — เป็น Growth Engine ใหม่ที่จับ Preventive Care market (70% ประชากรยังสุขภาพดี ยังไม่เป็นลูกค้า) · <strong>Digital Transformation</strong>: Telemedicine + AI Diagnosis + ระบบจดข้อมูลดิจิทัลระหว่างสาขา (ลด HR Cost แพทย์เฉพาะทาง) · <strong>Medical Tourism</strong> ฟื้นเมื่อค่าบาทอ่อนตัวลง — ตลาดอินเดีย/CLMV ขยาย',
+    strengths: [
+      'Scale Advantage — ใหญ่กว่า BH (อันดับ 2) 3.4x ให้ต้นทุนเฉลี่ยต่ำและ bargaining power กับประกัน',
+      'JCI Accredited 12 แห่ง (มากสุดเอเชีย) + Brand + Network = Moat ที่สร้างยาก',
+      'Medical Tourism High-Margin (15% ของรายได้) + Wellness Clinic Blue Ocean ใหม่'
+    ],
+    risks: [
+      'นโยบาย "คุมค่ารักษาเอกชน" กดดัน Pricing Power (ยังไม่เป็นรูปธรรม)',
+      'HR Cost พุ่งจากการแข่งขันแพทย์เฉพาะทาง — กดดัน margin ปี 2568'
+    ],
+    financials: [
+      { label: 'Revenue 2568', value: '฿113.3B', sub: '+3.6% YoY' },
+      { label: 'Net Profit', value: '฿15,848M', sub: 'Margin 14.0%' },
+      { label: 'EBITDA', value: '฿27,010M', sub: 'Margin 23.9%' },
+      { label: 'DPS', value: '฿1.00', sub: 'Yield 5.4% · ATH' }
+    ],
+    tailwind: '<strong>Aged Society:</strong> ผู้สูงอายุไทย 60+ จะโต 13M → 20M ในปี 2583 (ต้องการ healthcare สูงขึ้น) + Preventive Care market ใหญ่กว่า Curative 70% แต่ยังไม่เป็นลูกค้า',
+    verdict: 'BDMS ไม่ใช่หุ้น Defensive ทั่วไป — เป็น <strong>Healthcare Platform</strong> ที่ได้ประโยชน์จากเทรนด์ที่หลีกเลี่ยงไม่ได้: <em>คนไทยแก่ขึ้น</em> + <em>เจ็บไข้มากขึ้น</em> + <em>ยอมจ่ายเพื่อสุขภาพมากขึ้น</em> · Revenue โต 35% ใน 6 ปีแม้ผ่าน COVID — แสดง Resilience สูง · ปันผล ATH ฿1 บาท Yield 5.4% ที่ราคา 18 บาท · ความเสี่ยงเดียวคือ "นโยบายคุมค่ารักษา" แต่ยังไม่เป็นรูปธรรม · <strong>เป็นหุ้นที่ "ซื้อแล้วลืมได้" 5–10 ปี</strong>'
+  },
+  {
+    ticker: 'BH',
+    name: 'Bumrungrad Hospital',
+    sector: 'Healthcare',
+    icon: '🏥',
+    rating: 'HOLD',
+    targetPrice: '฿170–190',
+    business: 'โรงพยาบาลเดี่ยว International Premium ในซอย 3 นานาเหนือ 580 เตียง — ผู้ป่วยต่างชาติ 64.8% จาก 190 ประเทศ',
+    thesis: '<strong>Premium Single-Hospital</strong> ที่ Operate อย่างมีประสิทธิภาพสูงสุด ขย่ม Medical Tourism ที่ High-Margin + Aged Affluent Segment ยังโต 10%/ปี — เป็น "Default Choice" สำหรับ Top 10% Income ไทย 50+ ปี',
+    story: '<strong>ปี 2523</strong> โรงพยาบาลเล็ก ๆ ในซอยสุขุมวิท 3 (ซอยนานาเหนือ) เปิดประตูครั้งแรก · 45 ปีต่อมา ที่นี่กลายเป็น <strong>"โรงพยาบาลเดี่ยวที่มี Margin สูงที่สุดในไทย"</strong> · ทำรายได้ ฿25.4B จากตึกเดียว — เท่ากับ <strong>22% ของ BDMS ที่มี 60 แห่ง!</strong> · นี่คือพลังของ <em>Pricing Power</em> ระดับโลก ที่มาจาก Brand "Bumrungrad" ที่คนตะวันออกกลางจดจำเป็น <em>Premium Healthcare Destination</em>',
+    businessDeep: 'BH คือ <strong>Single Hospital Multi-Specialty</strong> บนทำเลทอง — ติดสถานทูต 30+ ประเทศ, ห้างเซ็นทรัลชิดลม, BTS นานา · <strong>Revenue Mix:</strong> ผู้ป่วยต่างชาติ <strong>64.8%</strong> (฿16,494M) · ผู้ป่วยไทย Top Income <strong>35.2%</strong> (฿8,955M) · ลูกค้าหลักจาก <strong>UAE, Kuwait, Oman, Myanmar, Cambodia, Bangladesh, China</strong> · มีล่ามภาษา <strong>190 ประเทศ</strong> + คอนซัลทูตจาก Saudi/UAE มา outsource การรักษา',
+    shockFacts: [
+      { icon: '🤯', text: 'รายได้ <strong>฿25.4B จากโรงพยาบาลเดียว</strong> — เทียบ BDMS 60 แห่งทำได้ 5 เท่า แสดง Pricing Power สุดยอด' },
+      { icon: '💎', text: 'Net Margin <strong>29.5%</strong> — สูงสุดในกลุ่ม Healthcare ไทย (BDMS เพียง 14%)' },
+      { icon: '🌍', text: 'ผู้ป่วยต่างชาติ <strong>65%</strong> ของรายได้ — มาจาก 190 ประเทศ' },
+      { icon: '📊', text: 'ROE <strong>24.1%</strong> — Top-10 ของ SET100 ทุก sector' },
+      { icon: '⚠️', text: 'Revenue ติดลบครั้งแรกในประวัติ FY2568 <strong>-1.6% YoY</strong> (สาเหตุ: บาทแข็ง + คู่แข่ง Mediclinic ME, Apollo India)' },
+      { icon: '🎩', text: 'MD ดำรงตำแหน่ง <strong>32 ปี (อายุ 73)</strong> — Succession Risk ใหญ่' }
+    ],
+    competitors: [
+      { name: 'BDMS (Bangkok Hospital)', detail: '<strong>คู่แข่งโดยตรง</strong> ในไทยสำหรับ Top 1% · มี Network 60+ แห่ง แต่ Margin ต่ำกว่ามาก' },
+      { name: 'Mediclinic Middle East (Dubai)', detail: '<strong>คู่แข่งระดับโลก</strong> ที่กิน Market Share ผู้ป่วยอาหรับ — ใกล้บ้านลูกค้า ราคาถูกกว่า' },
+      { name: 'Apollo Hospitals (India)', detail: '<strong>คุณภาพระดับโลก ราคาต่ำกว่า BH 30-50%</strong> — กิน Indian/CLMV market' },
+      { name: 'Samitivej (BDMS Group)', detail: 'Premium Expat Segment คล้าย ๆ BH · กระจายหลายสาขา' }
+    ],
+    futureStrategy: '<strong>ปัญหาใหญ่:</strong> BH <em>ไม่ประกาศแผนขยายสาขาใหญ่</em> — Growth Story ขาดหายไป · Revenue plateau ที่ ~฿25.5B แล้ว 3 ปีต่อกัน · กลยุทธ์หลักคือ <strong>"ขายแพงขึ้น"</strong> มากกว่า <em>"ขยาย"</em> · ความหวัง: ขยายผ่าน <strong>Medical Travel Visa จาก UAE/Saudi</strong> + ส่งผู้ป่วยรัฐบาลตะวันออกกลาง + ผู้สูงอายุไทย Top 10% · CAPEX ส่วนใหญ่ไป renovate ตึกเดิม + เพิ่มเทคโนโลยี',
+    strengths: [
+      'Highest Net Margin Healthcare ไทย 29.5% (สูงกว่า BDMS 2x) + Pricing Power Strong',
+      'Medical Tourism Dominance — 65% Revenue จากต่างชาติ + ล่ามภาษา 190 ประเทศ',
+      'Single Hospital High Efficiency — ทำ ฿25.4B = 22% ของ BDMS 60+ แห่ง + ROE สูงสุด'
+    ],
+    risks: [
+      'Single-Hospital Risk — ถ้า Medical Tourism ลด ไม่มี diversification + Revenue ติดลบครั้งแรก FY2568 (-1.6% YoY)',
+      'Succession Risk — MD ดำรงตำแหน่ง 32 ปี (อายุ 73) ไม่มีประกาศแผนสืบทอด'
+    ],
+    financials: [
+      { label: 'Revenue 2568', value: '฿25.4B', sub: '-1.6% YoY (ติดลบ 1st time)' },
+      { label: 'Net Profit', value: '฿7,512M', sub: 'Margin 29.5% (Top)' },
+      { label: 'EBITDA', value: '฿9,416M', sub: 'Margin ~37%' },
+      { label: 'DPS', value: '฿5.00', sub: 'Yield 2.8% · ATH' }
+    ],
+    tailwind: '<strong>Medical Tourism Tailwind:</strong> นักท่องเที่ยวการแพทย์จาก UAE/Saudi ขยาย Medical Travel Visa + ส่งผู้ป่วยรัฐบาล + Affluent Healthcare ไทย Top 10% โตอิสระจาก Tourism',
+    verdict: 'BH คือ <strong>"Premium Single-Hospital ที่สมบูรณ์ที่สุด"</strong> — Margin 29.5% ระดับโลก + ROE 24% Top SET100 · แต่ <em>Growth Story กำลังอ่อน</em> เพราะ Revenue plateau + ไม่มี CAPEX ขยายใหญ่ + Succession Risk · <strong>ราคา ฿178 ที่ PE ~22x แพงเกินไป</strong> สำหรับ Single Hospital ที่ Revenue ไม่โต · <strong>HOLD</strong> ถ้ามีแล้ว · <strong>WAIT</strong> ถ้ายังไม่มี — รอ correction ลงต่ำกว่า ฿170 และดูแผน Successor + แผนขยายชัดเจนก่อน'
+  },
+  {
+    ticker: 'CPALL',
+    name: 'CP All Public Company',
+    sector: 'Modern Trade',
+    icon: '🛒',
+    rating: 'HOLD',
+    targetPrice: '฿50–58',
+    business: 'Vertically Integrated Modern Trade Empire — 7-Eleven Thailand 14,800+ สาขา + Makro Cash & Carry 160+ + Lotus\'s Hypermarket 2,600+ ครอบ >50% Market Share ไทย',
+    thesis: '<strong>Modern Trade ไทย</strong> จำเป็น + CPALL ครองจุดแข็ง — ดิจิทัล + Loyalty + Private Label ยังมี room ขยาย margin เลื่อยๆ ในระยะ 3-5 ปี · ค่าเสื่อม non-cash สูง = Free Cash Flow ดีกว่า Net Income',
+    story: '<strong>ปี 2531 (1988)</strong> เครือ CP เปิด <em>"7-Eleven สาขาแรกในไทย"</em> ที่หน้าซอยพัฒน์พงษ์ · 36 ปีต่อมา 7-Eleven กลายเป็น <strong>14,800+ สาขา</strong> เปิด 24 ชม. ทั่วประเทศ — เป็น <strong>Master Franchise อันดับ 2 ของโลก</strong> รองจากญี่ปุ่นเท่านั้น · ปี <strong>2564</strong> CPALL ขย่ม Modern Trade ไทยอีกขั้นด้วยการ <em>ควบรวม Makro</em> จาก Tesco/SCG ด้วยมูลค่า <strong>฿338,000 ล้านบาท</strong> — ดีลที่ <em>ใหญ่ที่สุดในประวัติศาสตร์ค้าปลีกไทย</em> · ทำให้ CP All กลายเป็น Modern Trade Empire ที่ไม่มีใครแตะต้องได้',
+    businessDeep: 'CPALL คือ <strong>Vertically Integrated Modern Trade Group</strong> 3 อาณาจักร + Ecosystem: <strong>7-Eleven Thailand</strong> 14,800+ สาขา (Convenience, ขายของแพงต่อหน่วยที่สุด — Margin สูงสุด 5-6%) · <strong>Makro Cash & Carry</strong> 160+ สาขา (Wholesale ให้ร้านค้า/ภัตตาคาร — Margin ต่ำ 3-4% แต่ Volume มหาศาล) · <strong>Lotus\'s</strong> 2,600+ สาขา (Hypermarket — เพิ่งซื้อจาก Tesco) ผ่าน <strong>CPAXT</strong> · ครอง <strong>>50% Modern Trade ไทย</strong> · เสริมด้วย <strong>ALL Card Loyalty 19M+ คน</strong> · <strong>True Money Wallet</strong> · <strong>BTS Logistics</strong> · <strong>CPRAM Bakery</strong> · <strong>ALL Online 24-hr Delivery</strong> · ผลคือ Revenue FY2567 ทะลุ <strong>฿1,057,000 ล้านบาท</strong> — โต 78% ใน 4 ปี',
+    shockFacts: [
+      { icon: '🏪', text: '<strong>14,800+ สาขา 7-Eleven</strong> เปิด 24 ชม. — Master Franchise อันดับ 2 ของโลก (รองญี่ปุ่น)' },
+      { icon: '💸', text: 'ดีลซื้อ Lotus\'s ปี 2564 มูลค่า <strong>฿338,000 ล้านบาท</strong> — ใหญ่สุดในประวัติศาสตร์ค้าปลีกไทย' },
+      { icon: '📈', text: 'Revenue โต <strong>+78% ใน 4 ปี</strong> (฿593.6B → ฿1,057B) จากการควบรวม' },
+      { icon: '👥', text: 'พนักงาน <strong>204,701 คน</strong> (+33% ใน 4 ปี) — ใหญ่สุดในกลุ่ม Listed' },
+      { icon: '💳', text: 'ALL Member Loyalty <strong>19 ล้านคน</strong> — ฐานข้อมูล 1st-party data ใหญ่สุด' },
+      { icon: '⚠️', text: 'Net Margin <strong>เพียง 2.3%</strong> — บางมาก เพราะหนี้ Lotus\'s + Makro Margin ต่ำ' }
+    ],
+    competitors: [
+      { name: 'CPAXT (Makro/Lotus\'s)', detail: '<strong>ลูกบริษัทเอง 85%</strong> · ตลาด Wholesale + Hypermarket — เสริมไม่แข่ง' },
+      { name: 'CRC (Central Retail)', detail: '<strong>คู่แข่งหลักในไทย</strong> · มี Tops, Robinson, Family Mart · Revenue ฿250B · Margin สูงกว่า' },
+      { name: 'BJC (Big C)', detail: '<strong>Hypermarket อันดับ 2</strong> · เครือ TCC Group · Revenue ฿170B · กำลังขยายต่างประเทศ' },
+      { name: 'HMPRO (HomePro)', detail: 'แข่งใน <strong>Home Improvement</strong> · ไม่ทับซ้อนตรง ๆ แต่แชร์ Wallet ลูกค้า' }
+    ],
+    futureStrategy: '<strong>5 หัวข้อหลัก 5 ปีข้างหน้า:</strong> (1) <strong>เร่งจ่ายหนี้ ฿338B</strong> จากดีล Lotus\'s ลด Interest Burden · (2) <strong>Private Label Push</strong> — Margin 5-10pp สูงกว่า Branded ขยายผ่าน CPRAM ทำ Bakery + Ready-to-eat · (3) <strong>Digital + Loyalty</strong> — ALL Member 19M → 25M, ALL Online โต 30%/ปี · (4) <strong>Logistics In-house</strong> — BTS Built-to-Suit ปี 2568 +290% เปิดให้ลูกค้านอก CP ใช้ด้วย · (5) <strong>Same-store Sales Growth</strong> = KPI หลัก เพราะอิ่มตัวด้านสาขา (14,800 ใกล้ saturation)',
+    strengths: [
+      'Largest Modern Trade Coverage — 7-Eleven + Makro + Lotus\'s vertical integration ทำ entry barrier สูง',
+      'Omnichannel + Loyalty Program — ALL Member 19M+ + ALL Online 24-hr Delivery + Payment system = 1st-party data',
+      'Private Label Margin Lift — 5-10pp สูงกว่า branded goods, ขยายผ่าน CPRAM bakery/ready-to-eat'
+    ],
+    risks: [
+      'Net Margin บาง ~2.3% เพราะ Makro/Lotus\'s margin ต่ำ (3-4%) เทียบ 7-Eleven (5-6%)',
+      'Makro Consolidation Impact — Revenue โตแต่ Profit โตช้า ต้องจ่าย interest หนี้ ฿338B ซื้อ Lotus\'s'
+    ],
+    financials: [
+      { label: 'Revenue 2567', value: '฿1,057B', sub: '+7.4% YoY · CAGR 12.2%/4y' },
+      { label: 'Market Cap', value: '฿414B', sub: '@ ฿46.50' },
+      { label: 'Employees', value: '204K+', sub: '+33% ใน 4 ปี' },
+      { label: 'DPS', value: '฿1.65', sub: 'Yield ~3.5% · Payout 50%' }
+    ],
+    tailwind: '<strong>Urbanization + Middle Class:</strong> Convenience Store & Hypermarket ต่อเนื่อง + Private Label = Structural margin lift + Digital Payment growing',
+    verdict: 'CPALL คือ <strong>"Modern Trade ที่ไม่มีใครแทนได้"</strong> — 7-Eleven ทุก 1 km. ในกรุงเทพฯ + Makro/Lotus\'s ครอง Wholesale + Hypermarket · แต่ <em>Cost ของอำนาจนี้คือหนี้ ฿338B</em> ที่ต้องผ่อน 10+ ปี · Net Margin บาง 2.3% หมายความว่าทุก ฿100 ที่ขายได้ ทำกำไรเพียง ฿2.3 — ต่ำกว่า BDMS, BH, CPN เท่าตัว · <strong>เหมาะสำหรับนักลงทุนที่มอง Long-term + ไม่กลัวหนี้</strong> · ราคา ฿46 ที่ PE ~17x ถือว่า Fair-Value · <strong>HOLD</strong> รอ Margin Expansion จาก Private Label + Logistics In-house ใน 3-5 ปี'
+  },
+  {
+    ticker: 'CPN',
+    name: 'Central Pattana',
+    sector: 'Real Estate / Retail',
+    icon: '🏢',
+    rating: 'BUY-ON-DIP',
+    targetPrice: '฿80–95',
+    business: 'Retail-Led Mixed-Use Developer — 45+ ศูนย์การค้าไทย 935,065 ตร.ม. + Office, Hotel, Residential — 45 ปี Track Record + 510M ผู้ใช้บริการ/ปี',
+    thesis: '<strong>Highest-Quality Retail Estate</strong> ไทย — ค่าเช่าสม่ำเสมอทุกเดือน + EBITDA Margin 55% + TRIS AA+ + 510M traffic ทำให้ re-rating ขึ้น · ลูกค้าซื้อ Mix ดี (Experience + Retail) ยั่งยืน',
+    story: '<strong>ปี 2523 (1980)</strong> กลุ่ม Central โดยตระกูลจิราธิวัฒน์ ตั้ง <em>"บริษัท เซ็นทรัลพัฒนา จำกัด"</em> เพื่อพัฒนาศูนย์การค้าครบวงจรแห่งแรกของไทย · 2 ปีต่อมา <strong>เซ็นทรัล ลาดพร้าว</strong> เปิดให้บริการในปี 2525 — <em>เปลี่ยนภูมิทัศน์ค้าปลีกไทยตลอดกาล</em> · 45 ปีต่อมา CPN กลายเป็น <strong>Retail-Led Mixed-Use Developer ที่ใหญ่ที่สุดในไทย</strong> ด้วย 45+ ศูนย์การค้า + ทำเลทอง CBD ทั้ง Central World, Central Park, ChidLom, ลาดพร้าว · ทำรายได้ <strong>฿53,009M ATH ในปี 2568</strong> · มีผู้ใช้บริการ <strong>510 ล้านครั้ง/ปี</strong> — มากกว่าประชากรไทย 7 เท่า!',
+    businessDeep: 'CPN ทำ <strong>4 ธุรกิจ</strong> ภายใต้แนว <strong>Retail-Led Mixed-Use</strong>: (1) <strong>ศูนย์การค้า</strong> Margin 50.8% (รายได้ใหญ่สุด ฿39,497M) — โครงการเด่น Central World, Central Park, EmSphere, Central Embassy · (2) <strong>Office</strong> Margin 39.7% (฿6,231M) — Central World Tower, Central Park Office · (3) <strong>Hotel</strong> Margin 34.6% — Centara Group · (4) <strong>Residential</strong> Margin ผันผวน — Condos นอก CBD · พิเศษ: <strong>Food Court Margin 66.9%</strong> สูงสุด (฿1,092M) — เพราะเป็นค่าเช่าล้วน ๆ ไม่มีต้นทุนสินค้า · Anchor Tenants คือ <strong>Central Group เอง</strong> (Robinson, Tops, B2S, Power Buy) — ทำให้ Occupancy 90%+ guarantee',
+    shockFacts: [
+      { icon: '🛍️', text: 'มีผู้ใช้บริการ <strong>510 ล้านครั้ง/ปี</strong> — มากกว่าประชากรไทย 7 เท่า' },
+      { icon: '💎', text: 'Net Margin <strong>35.5% สูงสุดในประวัติ</strong> · EBITDA Margin <strong>~55%</strong> (มากสุดในกลุ่ม Property)' },
+      { icon: '🏆', text: '<strong>TRIS AA+</strong> — Top Credit Rating · Cost of Debt ต่ำสุดในกลุ่ม' },
+      { icon: '📈', text: 'Revenue <strong>ATH ฿53.0B FY2568</strong> · Net Profit ฿18.8B (+13% YoY)' },
+      { icon: '☀️', text: 'ติดตั้ง <strong>Solar 30+ โครงการ</strong> ลดค่าไฟ 7,093 MWh/ปี → Gross Margin จาก 55% → 58%' },
+      { icon: '🏢', text: '<strong>935,065 ตร.ม.</strong> Net Leasable Area · 45+ ศูนย์การค้าทั่วไทย' }
+    ],
+    competitors: [
+      { name: 'PREIT (Property Perfect)', detail: '<strong>คู่แข่งศูนย์การค้าตจว.</strong> · เล็กกว่ามาก · Margin ต่ำกว่า' },
+      { name: 'BTS Group (Future Park)', detail: '<strong>Future Park Rangsit</strong> + Mega Bangna ผ่าน JV · Traffic สูงแต่ทำเลรอง' },
+      { name: 'EM District (The Mall Group)', detail: '<strong>Emporium, EmQuartier, EmSphere</strong> · Ultra-Premium · Margin สูงแต่ Scale เล็กกว่า' },
+      { name: 'Siam Piwat', detail: '<strong>Siam Paragon, ICONSIAM</strong> · Iconic destinations · Joint venture หลายราย' }
+    ],
+    futureStrategy: '<strong>5 ปีข้างหน้า:</strong> (1) <strong>Tenant Quality Up</strong> — Pull upscale brands ไม่ discount · (2) <strong>Solar Expansion</strong> ครบทุก mall ภายใน 3 ปี — ลดต้นทุนพลังงาน 20%+ · (3) <strong>Mixed-Use Push</strong> — Office + Hotel + Residence รอบ ๆ mall · (4) <strong>Regional Mall</strong> ขยายตจว. — แต่ทำเลดี EEC/CBD เริ่มหมด ต้องไป Tier 2/3 cities ซึ่ง margin บางลง · (5) <strong>Digital Lifestyle Platform</strong> — The 1 Card + delivery + experience integration',
+    strengths: [
+      'Highest Net Margin in Real Estate — 35.5% (Net) + EBITDA Margin ~55% (มากสุด Property Sector)',
+      'High-Margin Cash Flows — Occupancy 90%+ + Stable Rent Income ทุกเดือน + TRIS AA+ (Top Credit)',
+      'Moat ทำเล + Anchor Tenants Central Group — 510M visits/ปี guarantee + Solar/Efficient ขยาย margin'
+    ],
+    risks: [
+      'E-commerce vs Physical Retail — แม้ Occupancy แข็ง Online ยังแข่ง Tenant Demand ระยะยาว',
+      'Expansion Ceiling — ทำเลดี EEC/CBD หมด ต้องไป Regional/Community Mall ซึ่ง margin บาง'
+    ],
+    financials: [
+      { label: 'Revenue 2568', value: '฿53.0B', sub: '+2.3% YoY (ATH)' },
+      { label: 'Net Profit', value: '฿18.8B', sub: '+13% YoY · Margin 35.5%' },
+      { label: 'EBITDA', value: '~฿29B', sub: 'Margin ~55%' },
+      { label: 'DPS', value: '฿2.40', sub: 'Payout 57% · ATH' }
+    ],
+    tailwind: '<strong>Recovery + Tourism Rebound:</strong> Luxury Spending ฟื้น + Solar/Energy Efficiency = margin tailwind + Foot Traffic ไม่ขาด ยั่งยืนกว่ากลัว Ecom',
+    verdict: 'CPN คือ <strong>"Compound Quality Story ที่ดีที่สุดในตลาด Property ไทย"</strong> — Net Margin 35.5% ATH + EBITDA 55% + TRIS AA+ + Traffic 510M/ปี · นี่ไม่ใช่ <em>"Real Estate ปกติ"</em> — แต่เป็น <strong>"Cash Generating Machine ที่มี Moat ทำเล"</strong> · 45 ปี Track Record + Central Group Anchor + Solar Margin Expansion = Compound 10-15%/ปี ระยะยาว · ราคา ฿64 ที่ PE 14.4x <em>Fair-to-Cheap</em> · <strong>BUY-ON-DIP</strong> เมื่อตลาด correction · เป็น Core Holding ของพอร์ตหุ้นปันผลได้สบาย ๆ'
+  },
+  {
+    ticker: 'WHA',
+    name: 'WHA Corporation',
+    sector: 'Industrial & Logistics',
+    icon: '🏭',
+    rating: 'ACCUMULATE',
+    targetPrice: '฿5.30–6.20',
+    business: '5-Pillar Industrial Ecosystem — นิคมอุตสาหกรรม 17 แห่ง 88,900 ไร่ + Logistics BTS 3.24M ตร.ม. + Utilities (น้ำ/ไฟ 1,026 MW) + Digital + Mobility — ส่วนใหญ่ EEC',
+    thesis: '<strong>EEC นิคม Player ตัวเดียว</strong> + Utilities Bundle = Sticky Revenue + Power Recovery 39% Solar + Data Center Wave (DC ทั่วไทย) = CAPEX ฿16.5B → นิคมใหม่ + Logistics Expansion + REIT Recycle = Steady Cash Flow',
+    story: '<strong>ปี 2546 (2003)</strong> คุณ <em>สมยศ จารุกรณ์</em> และครอบครัวก่อตั้ง WHA Corporation จากธุรกิจ Built-to-Suit Logistics เล็ก ๆ · 22 ปีต่อมา WHA กลายเป็น <strong>Industrial Ecosystem ที่ใหญ่ที่สุดในไทย</strong> — มี 5 ขาธุรกิจ ครอง EEC + Logistics + Power + Water + Digital · จุดเปลี่ยนสำคัญคือปี <strong>2558</strong> ที่ WHA ซื้อ <em>Hemaraj</em> (ผู้นำนิคมอุตสาหกรรม EEC) ทำให้ก้าวจาก "Logistics เล็ก ๆ" เป็น <strong>"EEC Industrial Empire"</strong> · ปัจจุบันมี <strong>200+ ลูกค้า Multinational</strong> เช่น Toyota, Honda, BMW, Foxconn, BYD, AWS · ทำรายได้ ฿18.2B ATH ในปี 2568',
+    businessDeep: 'WHA คือ <strong>5-Pillar Industrial Ecosystem</strong>: (1) <strong>นิคมอุตสาหกรรม WHAID</strong> ฿8,910M Margin 51.3% — 17 แห่งใน Thailand + Vietnam, ขายที่ดิน + เช่า · (2) <strong>Logistics + BTS</strong> ฿2,239M Margin 77.4% (สูงสุด!) — Built-to-Suit 3.24M ตร.ม. ให้ลูกค้าหลัก Lazada/Shopee/Tesco · (3) <strong>Utilities WHAUP</strong> ฿3,358M — น้ำ 200M ลบ.ม./ปี + ก๊าซ + Solar 498 MW (จะเป็น 596 MW ปี 2569) · (4) <strong>Power JV</strong> ฿1,386M — โรงไฟฟ้าร่วมทุน 1,026 MW · (5) <strong>Digital/Mobility</strong> — EV Charging, Smart City Solutions · มี <strong>4 กองทรัสต์ REIT</strong> (WHART/WHAIR/WHABT/HPF) เป็น Exit Channel ที่คู่แข่งไม่มี — ขายสินทรัพย์เข้า REIT แล้วเอาเงินไปลงทุนใหม่ = <em>Recycling Capital ไม่หยุด</em>',
+    shockFacts: [
+      { icon: '🏭', text: 'มีนิคมอุตสาหกรรม <strong>17 แห่ง · 88,900 ไร่</strong> ใน Thailand + Vietnam' },
+      { icon: '⚡', text: 'Power Capacity <strong>1,026 MW</strong> + Solar 498 MW → 596 MW ปี 2569' },
+      { icon: '📦', text: 'Logistics BTS <strong>3.24 ล้าน ตร.ม.</strong> · Built-to-Suit ปี 2568 เซ็น <strong>+290% YoY</strong> = ฿3,877M' },
+      { icon: '💼', text: 'มี <strong>200+ ลูกค้า Multinational</strong> เช่น Toyota, Honda, BMW, Foxconn, BYD, AWS' },
+      { icon: '🇻🇳', text: 'Vietnam Boom: GDP Q4 +8.46% (10-year high) · WHA มี <strong>2 นิคมที่ Thanh Hoa 540 ha</strong>' },
+      { icon: '💎', text: 'Net Margin <strong>28.2%</strong> · CAPEX 2569 ฿16.5B (55% ไปนิคมรับ Data Center Wave)' }
+    ],
+    competitors: [
+      { name: 'AMATA Corp', detail: '<strong>คู่แข่งหลัก EEC</strong> · มีนิคม Eastern Seaboard, Amata Smart City · Margin คล้ายกัน · Vietnam expansion ด้วย' },
+      { name: 'ROJNA (Rojana Industrial Park)', detail: '<strong>นิคม Rayong + Ayutthaya</strong> · เก่าแก่กว่า · ขยายช้ากว่า · Margin ต่ำกว่า' },
+      { name: 'IPARK (Indorama Ventures)', detail: '<strong>นิคม Petrochemical</strong> เฉพาะ · ไม่ใช่คู่แข่งตรง ๆ' },
+      { name: 'SET Real Estate REITs', detail: '<strong>WHART / FTREIT / etc.</strong> · เป็น Exit Channel ของ WHA เอง — ไม่ใช่คู่แข่ง' }
+    ],
+    futureStrategy: '<strong>3 Catalyst หลัก 5 ปีข้างหน้า:</strong> (1) <strong>Data Center Wave</strong> — กำลังเจรจาลูกค้า DC <em>10+ ราย</em> รวม AWS, Microsoft, Google ที่จะลงทุนหลายแสนล้านในไทย · WHA มีที่ดิน + ไฟ + น้ำ + Cooling พร้อมที่สุด · (2) <strong>Vietnam Expansion</strong> — GDP Vietnam โต 8%+, FDI เข้า $38B/ปี, WHA ลงทุน Smart Tech Zone Thanh Hoa 540 ha + กำลังเจรจาที่อื่น · (3) <strong>CAPEX 2569 ฿16,500M</strong> — 55% ไปนิคม รับ DC + Logistics + Solar Expansion · <strong>Recycling Capital ผ่าน REIT</strong> — ขายสินทรัพย์เข้า REIT (4 กองทรัสต์) แล้วลงทุนใหม่ = ไม่ต้องเพิ่มหนี้',
+    strengths: [
+      'EEC Location Monopoly — ตัวเดียว Built-to-Suit Expertise ใน EEC Corridor + 200+ Multinational Tenants',
+      'REIT Recycling Moat — 4 กองทรัสต์ (WHART/WHAIR/WHABT/HPF) = Exit Channel ที่คู่แข่งไม่มี',
+      'Utilities + Power Bundle — ลูกค้าได้ที่ดิน + ไฟ + น้ำ + โกดัง + EV Charging ครบ One-Stop'
+    ],
+    risks: [
+      'REIT Volatility — Revenue Swing จาก REIT ขาย: 2,951M → 929M → 1,602M (2566–2568)',
+      'Goodwill Risk — ฿17.6B Goodwill (17.3% ของสินทรัพย์) จากซื้อ Hemaraj — PwC Key Audit Matter'
+    ],
+    financials: [
+      { label: 'Revenue 2568', value: '฿18.2B', sub: '+27% YoY (ATH)' },
+      { label: 'Net Profit', value: '฿5.14B', sub: '+17.8% · Margin 28.2%' },
+      { label: 'CAPEX 2569', value: '฿16.5B', sub: '55% นิคม รับ DC Wave' },
+      { label: 'Market Cap', value: '฿67.9B', sub: '@ ฿4.44 · PE 13.2x' }
+    ],
+    tailwind: '<strong>EEC + Data Center Wave:</strong> EEC Economic Corridor พัฒนา + Data Center MNC ไทยกวัด + Renewable 498 MW Solar → 596 MW 2569 + Logistics E-commerce โต 20%/ปี',
+    verdict: 'WHA คือ <strong>"Pure Play EEC + Data Center Theme ที่หาไม่ได้ที่อื่น"</strong> — Margin 28.2% สูงกว่า AMATA + ROJNA + Logistics + Utilities Bundle + REIT Recycling Moat · <em>นี่คือธุรกิจที่ลูกค้ายากออก</em> — ตั้งโรงงานในนิคมแล้ว ใช้น้ำ-ไฟ-โกดัง WHA ครบ One-Stop จะไปไหน? · <strong>Catalyst คือ Data Center Wave 2026-2030</strong> — AWS/Microsoft/Google เข้าไทยจริง = WHA ได้ทุกแผ่นที่ดิน + ทุก MW ไฟ + ทุก ลบ.ม. น้ำ · ราคา ฿4.44 ที่ PE 13.2x เป็น <em>Sweet Spot</em> · <strong>ACCUMULATE on Dips</strong> สำหรับนักลงทุน Theme-based ที่เชื่อใน EEC + Data Center Story 5-10 ปี'
+  }
+];
+
+function initStocks5() {
+  const grid = document.getElementById('stockDetailGrid');
+  if (!grid) return;
+  grid.innerHTML = '';
+
+  stocks5Data.forEach(s => {
+    const ratingCls = s.rating.toLowerCase().includes('buy') ? 'buy' :
+                       s.rating.toLowerCase().includes('hold') ? 'hold' :
+                       s.rating.toLowerCase().includes('acc') ? 'acc' : 'hold';
+
+    const card = document.createElement('div');
+    card.className = 'sd-card';
+    card.id = 'sd-card-' + s.ticker;
+    card.innerHTML = `
+      <div class="sd-head">
+        <div class="sd-title-block">
+          <div class="sd-icon">${s.icon}</div>
+          <div>
+            <div class="sd-ticker"><span data-live-ticker="${s.ticker}">${s.ticker}</span></div>
+            <div class="sd-name">${s.name}</div>
+            <div class="sd-sector">${s.sector}</div>
+            <div class="sd-live" id="sdLive-${s.ticker}">
+              <span class="sd-live-price">—</span>
+              <span class="sd-live-change">—</span>
+            </div>
+          </div>
+        </div>
+        <div class="sd-rating-block">
+          <div class="sd-rating ${ratingCls}">★ ${s.rating}</div>
+          <div class="sd-tp">TP: ${s.targetPrice}</div>
+        </div>
+      </div>
+
+      <div class="sd-thesis">💡 <strong>Thesis:</strong> ${s.thesis}</div>
+
+      ${s.story ? `
+        <div class="sd-section-h">📜 เรื่องราว · ที่มา</div>
+        <div class="sd-narrative">${s.story}</div>
+      ` : ''}
+
+      ${s.businessDeep ? `
+        <div class="sd-section-h">🏢 ธุรกิจเชิงลึก · Revenue Mix</div>
+        <div class="sd-narrative">${s.businessDeep}</div>
+      ` : `<div class="sd-business">${s.business}</div>`}
+
+      <div class="sd-section-h">📊 ตัวเลขสำคัญทางการเงิน</div>
+      <div class="sd-fin-grid">
+        ${s.financials.map(f => `
+          <div class="sd-fin-item">
+            <div class="sd-fin-label">${f.label}</div>
+            <div class="sd-fin-value">${f.value}</div>
+            <div class="sd-fin-label" style="margin-top:2px;">${f.sub}</div>
+          </div>
+        `).join('')}
+      </div>
+
+      ${s.shockFacts && s.shockFacts.length ? `
+        <div class="sd-section-h">🤯 ตัวเลขที่ต้องรู้</div>
+        <div class="sd-shock-grid">
+          ${s.shockFacts.map(f => `
+            <div class="sd-shock-item">
+              <div class="sd-shock-icon">${f.icon}</div>
+              <div class="sd-shock-text">${f.text}</div>
+            </div>
+          `).join('')}
+        </div>
+      ` : ''}
+
+      ${s.competitors && s.competitors.length ? `
+        <div class="sd-section-h">⚔️ คู่แข่งหลัก · ตำแหน่งในตลาด</div>
+        <div class="sd-competitor-list">
+          ${s.competitors.map(c => `
+            <div class="sd-competitor-item"><strong>${c.name}</strong> — ${c.detail}</div>
+          `).join('')}
+        </div>
+      ` : ''}
+
+      ${s.futureStrategy ? `
+        <div class="sd-section-h">🚀 กลยุทธ์อนาคต · Catalyst</div>
+        <div class="sd-strategy-box">${s.futureStrategy}</div>
+      ` : ''}
+
+      <div class="sd-section-h">⚖️ จุดแข็ง · จุดเสี่ยง</div>
+      <div class="sd-grid2">
+        <div class="sd-section sd-strengths">
+          <div class="sd-section-title">✓ จุดแข็ง</div>
+          <ul class="sd-list">
+            ${s.strengths.map(t => `<li>${t}</li>`).join('')}
+          </ul>
+        </div>
+        <div class="sd-section sd-risks">
+          <div class="sd-section-title">✕ จุดเสี่ยง</div>
+          <ul class="sd-list">
+            ${s.risks.map(t => `<li>${t}</li>`).join('')}
+          </ul>
+        </div>
+      </div>
+
+      <div class="sd-tailwind">🌊 ${s.tailwind}</div>
+
+      ${s.verdict ? `
+        <div class="sd-verdict">
+          <div class="sd-verdict-title">บทสรุปจากลงทุนแมน</div>
+          <p>${s.verdict}</p>
+        </div>
+      ` : ''}
+    `;
+    grid.appendChild(card);
+  });
+
+  // Initial live data update
+  if (typeof window.updateStocks5Live === 'function') window.updateStocks5Live();
+}
+
+// Update live price + day change for the 5 stock cards
+window.updateStocks5Live = function() {
+  if (!stocks5Ready) return;
+  stocks5Data.forEach(s => {
+    const el = document.getElementById('sdLive-' + s.ticker);
+    if (!el) return;
+    let live = null;
+    try { live = liveSync.stocks[s.ticker]; } catch (e) {}
+    const priceEl = el.querySelector('.sd-live-price');
+    const chEl = el.querySelector('.sd-live-change');
+    if (live && live.price) {
+      priceEl.textContent = '฿' + live.price.toFixed(2);
+      if (live.change != null) {
+        const up = live.change >= 0;
+        chEl.textContent = (up ? '▲ +' : '▼ ') + Math.abs(live.change).toFixed(2) + '%';
+        chEl.className = 'sd-live-change ' + (up ? 'up' : 'down');
+      } else {
+        chEl.textContent = '';
+      }
+    } else {
+      priceEl.textContent = '—';
+      chEl.textContent = 'รอข้อมูล';
+      chEl.className = 'sd-live-change';
+    }
+  });
+};
+
 function initFinance() {
   // Compute YTD totals (Jan up to current month inclusive)
   const ytd = monthlyFinance.slice(0, CURRENT_MONTH_INDEX + 1);
@@ -3754,6 +3946,7 @@ function applyLiveData() {
   if (typeof window.renderActions === 'function') window.renderActions();
   if (typeof window.renderInsights === 'function') window.renderInsights();
   if (typeof window.updateEmergencySuggestion === 'function') window.updateEmergencySuggestion();
+  if (typeof window.updateStocks5Live === 'function') window.updateStocks5Live();
 
   // Update Valuation charts with live ROE
   const liveROE = s => s.roeLive || s.roe;
